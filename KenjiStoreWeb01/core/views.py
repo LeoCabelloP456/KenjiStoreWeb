@@ -1,5 +1,18 @@
 from django.shortcuts import render
 
-def home(request):
+# Create your views here.
+def store(request):
+    context = {}
+    return render(request, 'core/store.html', context)
 
-    return render(request, 'core/home.html')
+def cart(request):
+    context = {}
+    return render(request, 'core/cart.html', context)
+
+def checkout(request):
+    context = {}
+    return render(request, 'core/checkout.html', context)
+
+def login(request):
+    context = {}
+    return render(request, 'core/login.html', context)
