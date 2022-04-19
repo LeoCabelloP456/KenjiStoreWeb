@@ -12,6 +12,8 @@ h6 {
     color: hsl(0, 0%, 30%);
 }
 
+
+
 .box-element product{
     box-shadow: hsl(0, 0%, 80%) 0 0 16px;
     background-color: #fff;
@@ -110,29 +112,39 @@ h6 {
 }
 
 
-.buttons {
-    min-width: 700px;
-    display:flex;
-    justify-content: space-around;
-}
-
-.buttons a {
-    text-decoration: none;
-    font-size: 28px;
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
     text-align: center;
-    background-color: #314652;
-    color: #f1f1f1;
-    border-radius: 50%;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, .5) ;
-    transition: all .4s ease-in-out;
-}
+    text-decoration: none;
+    border-radius: 50%
+  }
+  
+  /* hover effect  */
+  .fa:hover {
+    opacity: 0.7;
+  }
+  
+  /* Set a specific color for each brand */
+  
+  /* Facebook */
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  /* Twitter */
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
 
-.buttons a:hover {
-    transform: scale(1.2);
-}
+  /* Instagram */
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
 
 
 
