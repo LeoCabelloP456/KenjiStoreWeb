@@ -42,12 +42,6 @@
                             <li><a class="dropdown-item" href="#">Géneros</a></li>
                         </ul>
                     </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'stock' %}">Menu admin</a>
-                    </li>
-
-                    
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Nosotros</a>
                     </li>
@@ -73,9 +67,33 @@
         </div>
     </nav>
     
-
+                                        
     <div class="container">
         {% block content %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Titulo</th>
+                        <th>Cantidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Berserker</td>
+                        <td>0</td>
+                        <td>Editar - Borrar</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            
 
         {% endblock content %}
     </div>

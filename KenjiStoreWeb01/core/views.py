@@ -16,3 +16,7 @@ def checkout(request):
 def login(request):
     context = {}
     return render(request, 'core/login.html', context)
+
+def stock(request):
+    context = {}
+    return render(request, 'core/stock.html', context)
