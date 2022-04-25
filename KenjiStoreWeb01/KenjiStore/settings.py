@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'core.apps.CoreConfig'
+    'core.apps.CoreConfig',
+    'authentication',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +131,6 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+'''Cargando crispy forms django con bootrstrap'''
+CRISPY_TEMPLATE_PACK='bootstrap4'

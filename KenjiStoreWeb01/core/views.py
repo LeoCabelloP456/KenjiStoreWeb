@@ -20,3 +20,7 @@ def login(request):
 def stock(request):
     context = {}
     return render(request, 'core/stock.html', context)
+
+def stock(request):
+    context = {}
+    return render(request, 'register/register.html', context)
