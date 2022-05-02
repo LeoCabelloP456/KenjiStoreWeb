@@ -1,0 +1,79 @@
+
+{% extends 'core/main.html' %}
+
+{% block contenido %}
+
+<section>
+
+    <div class="contenedor">
+        <h1>Ingresa tus datos</h1>
+
+        <form id="forma" name="forma" method="POST">
+            <div class="elemento">
+
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" id="nombre" name="nombre" required="true"/><br>
+            </div>
+
+            <div class="elemento">
+                <label for="apellido">Apellido:</label><br>
+                <input type="text" id="apellido" name="apellido"/><br>
+            </div>
+
+            <div class="elemento">
+                <label for="nombreUsuario">Nombre de usuario:</label><br>
+                <input type="text" id="nombreUsuario" name="nombreUsuario" required="true"/><br>
+            </div>
+            
+            <div class="elemento">
+                <label for="correo">Correo:</label><br>
+                <input type="email" id="correo" name="correo"/><br>
+            </div>
+
+            <div class="elemento">          
+                <label for="contraseña">Contraseña:</label><br>
+                <input type="password" id="contraseña" name="password" required="true"/><br>
+            </div>
+            
+            <div class="elemento">  
+                <label for="contraseña2">Reingrese contraseña:</label><br>
+                <input type="password" id="contraseña2" name="password2" required="true"/><br>
+            </div>
+
+            <div class="elemento">  
+                <label for="comuna">Comuna:</label><br>
+                <input type="text" id="comuna" name="comuna"/><br>
+            </div>
+
+            <div class="elemento">  
+                <label for="direccion">Direccion:</label><br>
+                <input type="text" id="direccion" name="direccion"/><br>
+
+            </div>
+
+            <div class="elemento">
+                <label for="telefono">Telefono:</label><br>
+                <input type="text" id="telefono" name="telefono" placeholder="+569..."/><br>
+            </div>
+
+            <div class="elemento">  
+                <label for="codigo_postal">Código Postal:</label><br>
+                <input type="text" id="codigo_postal" name="codigo_postal"/><br>
+            </div>
+
+            <div class="elemento">
+                    <input type="submit" value="Enviar"/>
+            </div>
+                
+           
+        </form>
+    </div>
+</section>
+
+{% endblock %}
+    
+
+
+
+
+
