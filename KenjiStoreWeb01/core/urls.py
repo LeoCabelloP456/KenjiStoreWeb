@@ -1,15 +1,18 @@
 from django.urls import path
 from . import views
-from django.urls import path
-from .views import registro, stock
+
+from django.contrib import admin  
+from .views import catalogo
+
+
+app_name = 'core'
 
 urlpatterns = [
-    path('', views.store, name="store"),
-    path('store/', views.store, name="store"),
-    path('cart/', views.cart, name="cart"),
-    path('checkout/', views.checkout, name="checkout"),
-    path('login/', views.login, name="login"),
-    path('stock/', stock, name="stock"),
-    path('registro/', registro, name="registro"),
+    path('', views.index, name="index"),
+    path('catalogo/', catalogo, name = 'lista_catalogo'),
 
+    path('registro/', views.registroPag, name="registro"),
+    path('login/', views.loginPag, name="login"),
 ]
+
+ 
