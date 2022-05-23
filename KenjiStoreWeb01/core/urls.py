@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 
 from django.contrib import admin  
-from .views import catalogo
+from .views import catalogo, productos
 
 
 app_name = 'core'
@@ -13,6 +13,7 @@ urlpatterns = [
 
     path('registro/', views.registroPag, name="registro"),
     path('login/', views.loginPag, name="login"),
+    path('productos/', productos, name="productos"),
 ]
 
  

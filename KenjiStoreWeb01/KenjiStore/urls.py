@@ -16,12 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
     path('accounts/', include('allauth.urls')),
     path('catalogo/', include('core.urls', namespace= 'core1')),
+    path('productos/', include('core.urls', namespace= 'productos')),
 ]
 
 '''if settings.DEBUG:

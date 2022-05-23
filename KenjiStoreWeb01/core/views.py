@@ -61,3 +61,7 @@ def loginPag(request):
 
     context = {}
     return render(request, 'core/login.html', context)
+
+def productos(request):
+    context = {    }
+    return render(request, "core/producto.html", context)

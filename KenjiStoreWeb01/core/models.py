@@ -14,10 +14,15 @@ from django.conf import settings
 )'''
 
 
-
+'''Modificación de clase Item para poblar la tabla desde el admin'''
 class Item(models.Model): 
-    title = models.CharField(max_length=100)
-    price = models.FloatField()
+    nombre = models.CharField(max_length=45, unique=True, null=True)
+    autor = models.CharField(max_length=30, null=True)
+    editorial = models.CharField(max_length=45, null=True)
+    precio = models.IntegerField(null=True)
+    imagen = models.ImageField('Imagen de producto', upload_to= 'producto/', null=True, blank=True)
+    stock = models.IntegerField(null=True)
+    descripcion = models.CharField(max_length=400, null=True)
     '''category = models.Charfield(choices= CATEGORY_CHOICES, max_length=1)'''
 
     def __str__(self):
@@ -38,17 +43,6 @@ class Order(models.Model):
     ordered_date = models.DateTimeField()
     ordered = models.BooleanField(default=False)
 
-'''Creación de la tabla Producto
-class Producto(models.Model):
-    id = models.AutoField(primary_key=True)
-    nombre = models.CharField('Nombre de articulo', max_length=200)
-    descripcion = models.CharField('Descripcion', max_length=200)
-    autor = models.CharField('Autor', max_length=200)
-    precio = models.IntegerField('Precio')
-    editorial = models.CharField('Editorial', max_length=200)
-    cantidad_pag = models.IntegerField('Cantidad paginas')
-    isbn = models.IntegerField('Isbn')
-'''
 
 '''Para mostrar el nombre del usuario creado en el panel admin -> tabla Users'''
 def __str__(self):
