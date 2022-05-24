@@ -23,7 +23,14 @@ urlpatterns = [
     path('', include('core.urls')),
     path('accounts/', include('allauth.urls')),
     path('catalogo/', include('core.urls', namespace= 'core1')),
-    path('productos/', include('core.urls', namespace= 'productos')),
+    path('producto1/', include('core.urls', namespace= 'producto1')),
+    path('producto2/', include('core.urls', namespace= 'producto2')),
+    path('producto3/', include('core.urls', namespace= 'producto3')),
+    path('producto4/', include('core.urls', namespace= 'producto4')),
+    path('producto5/', include('core.urls', namespace= 'producto5')),
+    path('producto6/', include('core.urls', namespace= 'producto6')),
+    path('producto7/', include('core.urls', namespace= 'producto7')),
+    path('producto7/', include('core.urls', namespace= 'producto7')),
 ]
 
 '''if settings.DEBUG:

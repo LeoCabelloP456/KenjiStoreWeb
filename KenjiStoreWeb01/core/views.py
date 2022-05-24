@@ -62,6 +62,36 @@ def loginPag(request):
     context = {}
     return render(request, 'core/login.html', context)
 
-def productos(request):
+
+'''definimos una función para cada producto'''
+def producto1(request):
     context = {    }
-    return render(request, "core/producto.html", context)
+    return render(request, "core/productos/producto1.html", context)
+
+def producto2(request):
+    context = {    }
+    return render(request, "core/productos/producto2.html", context)
+
+def producto3(request):
+    context = {    }
+    return render(request, "core/productos/producto3.html", context)
+
+def producto4(request):
+    context = {    }
+    return render(request, "core/productos/producto4.html", context)
+
+def producto5(request):
+    context = {    }
+    return render(request, "core/productos/producto5.html", context)
+
+def producto6(request):
+    context = {    }
+    return render(request, "core/productos/producto6.html", context)
+
+def producto7(request):
+    context = {    }
+    return render(request, "core/productos/producto7.html", context)
+
+def producto8(request):
+    context = {    }
+    return render(request, "core/productos/producto8.html", context)
