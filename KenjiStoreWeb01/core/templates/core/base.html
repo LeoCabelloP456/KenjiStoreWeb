@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -239,7 +240,7 @@
 									<ul>
 										<li class="dropdown-header">Utilidades</li>
 										<li role="separator" class="divider"></li>
-										<li><a href="login.html">Página Login</a></li>
+										<li><a href=" ">Página Login</a></li>
 										<li><a href="signin.html">Página de Registro</a></li>
 										<li><a href="forget-password.html">Olvidé mi Password</a></li>
 									</ul>
@@ -266,12 +267,11 @@
 
 
 <div id='contenido'>
-{% block contenido %}
-{% endblock %}
+{% block content %}
+
+
+{% endblock content %}
 </div>  
-
-
-
 
 <!--
 Start Call To Action
@@ -297,21 +297,6 @@ Start Call To Action
 		</div> 		<!-- End row -->
 	</div>   	<!-- End container -->
 </section>   <!-- End section -->
-
-<section class="section instagram-feed">
-	<div class="container">
-		<div class="row">
-			<div class="title">
-				<h2>Visítanos en instagram</h2>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12">
-				<div class="instagram-slider" id="instafeed" data-accessToken="IGQVJYeUk4YWNIY1h4OWZANeS1wRHZARdjJ5QmdueXN2RFR6NF9iYUtfcGp1NmpxZA3RTbnU1MXpDNVBHTzZAMOFlxcGlkVHBKdjhqSnUybERhNWdQSE5hVmtXT013MEhOQVJJRGJBRURn"></div>
-			</div>
-		</div>
-	</div>
-</section>
 
 
 <footer class="footer section text-center">
@@ -386,7 +371,5 @@ Start Call To Action
     <!-- Main Js File -->
     <script src="js/script.js"></script>
     
-
-
   </body>
   </html>
