@@ -22,8 +22,7 @@ from .forms import FormularioRegistro
 
 
 def index(request):
-    context = {}
-    return render(request, 'core/index.html', context)
+    return render(request, 'core/index.html')
 
 
 def catalogo(request):

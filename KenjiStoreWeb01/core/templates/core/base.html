@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -50,7 +51,7 @@
 			<div class="col-md-4 col-xs-12 col-sm-4">
 				<!-- Site Logo -->
 				<div class="logo text-center">
-					<a href="index.html">
+					<a href="#!">
 						<!-- replace logo here -->
 						<svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
 							xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -139,10 +140,11 @@
 	<nav class="navbar navigation">
 		<div class="container">
 			<div class="navbar-header">
-				<h2 class="menu-title">Main Menu</h2>
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+				<h2 class="menu-title">Menú principal</h2>
+				<!-- Boton hamburguesa solo aparece cuando esta responsive y no esta funcionando -->
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"				
 					aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
+					<span class="sr-only">Boton Hamburguesa</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
@@ -150,13 +152,16 @@
 
 			</div><!-- / .navbar-header -->
 
+			
+			
+
 			<!-- Navbar Links -->
 			<div id="navbar" class="navbar-collapse collapse text-center">
 				<ul class="nav navbar-nav">
 
 					<!-- Home -->
 					<li class="dropdown ">
-						<a href="index.html">Principal</a>
+						<a class="nav-link" href="index.html">Principal</a>
 					</li><!-- / Home -->
 
 
@@ -235,7 +240,7 @@
 									<ul>
 										<li class="dropdown-header">Utilidades</li>
 										<li role="separator" class="divider"></li>
-										<li><a href="login.html">Página Login</a></li>
+										<li><a href=" ">Página Login</a></li>
 										<li><a href="signin.html">Página de Registro</a></li>
 										<li><a href="forget-password.html">Olvidé mi Password</a></li>
 									</ul>
@@ -259,6 +264,14 @@
 	</nav>
 </section>
 
+
+
+<div id='contenido'>
+{% block content %}
+
+
+{% endblock content %}
+</div>  
 
 <!--
 Start Call To Action
@@ -284,21 +297,6 @@ Start Call To Action
 		</div> 		<!-- End row -->
 	</div>   	<!-- End container -->
 </section>   <!-- End section -->
-
-<section class="section instagram-feed">
-	<div class="container">
-		<div class="row">
-			<div class="title">
-				<h2>Visítanos en instagram</h2>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12">
-				<div class="instagram-slider" id="instafeed" data-accessToken="IGQVJYeUk4YWNIY1h4OWZANeS1wRHZARdjJ5QmdueXN2RFR6NF9iYUtfcGp1NmpxZA3RTbnU1MXpDNVBHTzZAMOFlxcGlkVHBKdjhqSnUybERhNWdQSE5hVmtXT013MEhOQVJJRGJBRURn"></div>
-			</div>
-		</div>
-	</div>
-</section>
 
 
 <footer class="footer section text-center">
@@ -373,7 +371,5 @@ Start Call To Action
     <!-- Main Js File -->
     <script src="js/script.js"></script>
     
-
-
   </body>
   </html>
