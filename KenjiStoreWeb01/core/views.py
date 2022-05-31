@@ -63,6 +63,18 @@ def loginPag(request):
 
 
 '''definimos una función para cada producto'''
+# pasar por url a la vista
+
+def producto(request, pk):
+    context = {    }
+    # crear template producto
+    producto = Item.objects.filter(pk=pk).first()
+    # validar que tenga producto ( get object or 404)
+
+
+    context['producto'] = producto
+    return render(request, "core/productos/producto.html", context) # hacer template producto detalle
+
 def producto1(request):
     context = {    }
     return render(request, "core/productos/producto1.html", context)

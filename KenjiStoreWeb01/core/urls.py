@@ -20,6 +20,9 @@ urlpatterns = [
     path('producto6/', views.producto6, name="producto6"),
     path('producto7/', views.producto7, name="producto7"),
     path('producto8/', views.producto8, name="producto"),
+    # crear url detalle producto
+    #path('producto/<int:pk>', views.producto, name="producto"),
+
 ]
 
  
