@@ -11,6 +11,7 @@ urlpatterns = [
 
     path('registro/', views.registroPag, name="registro"),
     path('login/', views.loginPag, name="login"),
+    path('logout/', views.logoutUser, name="logout"),
 
     path('producto1/', views.producto1, name="producto1"),
     path('producto2/', views.producto2, name="producto2"),
@@ -20,6 +21,9 @@ urlpatterns = [
     path('producto6/', views.producto6, name="producto6"),
     path('producto7/', views.producto7, name="producto7"),
     path('producto8/', views.producto8, name="producto"),
+    # crear url detalle producto
+    #path('producto/<int:pk>', views.producto, name="producto"),
+
 ]
 
  

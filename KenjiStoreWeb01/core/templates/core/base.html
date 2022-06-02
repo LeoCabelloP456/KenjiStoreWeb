@@ -21,6 +21,7 @@
   <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.png' %}" />
   
   <!-- Themefisher Icon font -->
+  
   <link rel="stylesheet" href="{% static 'plugins/themefisher-font/style.css' %}">
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}">
@@ -75,40 +76,8 @@
 								class="tf-ion-android-cart"></i>Carrito</a>
 						<div class="dropdown-menu cart-dropdown">
 							<!-- Cart Item -->
-							<div class="media">
-								<a class="pull-left" href="#!">
-									<img class="media-object" src="{% static 'images/shop/cart/cart-1.jpg' %}" alt="image" />
-								</a>
-								<div class="media-body">
-									<h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
-									<div class="cart-price">
-										<span>1 x</span>
-										<span>1250.00</span>
-									</div>
-									<h5><strong>$1200</strong></h5>
-								</div>
-								<a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-							</div><!-- / Cart Item -->
-							<!-- Cart Item -->
-							<div class="media">
-								<a class="pull-left" href="#!">
-									<img class="media-object" src="{% static 'images/shop/cart/cart-2.jpg' %}" alt="image" />
-								</a>
-								<div class="media-body">
-									<h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
-									<div class="cart-price">
-										<span>1 x</span>
-										<span>1250.00</span>
-									</div>
-									<h5><strong>$1200</strong></h5>
-								</div>
-								<a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-							</div><!-- / Cart Item -->
+							<!--Saqué todo el código que había aquí, porque eran productos comprados del template original-->
 
-							<div class="cart-summary">
-								<span>Total</span>
-								<span class="total-price">$1799.00</span>
-							</div>
 							<ul class="text-center cart-buttons">
 								<li><a href="cart.html" class="btn btn-small">View Cart</a></li>
 								<li><a href="checkout.html" class="btn btn-small btn-solid-border">Checkout</a></li>
@@ -123,7 +92,7 @@
 								class="tf-ion-ios-search-strong"></i> Buscar</a>
 						<ul class="dropdown-menu search-dropdown">
 							<li>
-								<form action="post"><input type="search" class="form-control" placeholder="Search..."></form>
+								<form action="post"><input type="search" class="form-control" placeholder="Ingresa producto..."></form>
 							</li>
 						</ul>
 					</li><!-- / Search -->
@@ -161,47 +130,15 @@
 
 					<!-- Home -->
 					<li class="dropdown ">
-						<a class="nav-link" href="index.html">Principal</a>
+						<a class="nav-link" href="/">Principal</a>
 					</li><!-- / Home -->
 
 
-					<!-- Elements -->
-					<li class="dropdown dropdown-slide">
-						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-							role="button" aria-haspopup="true" aria-expanded="false">Comprar <span
-								class="tf-ion-ios-arrow-down"></span></a>
-						<div class="dropdown-menu">
-							<div class="row">
-
-								<!-- Basic -->
-								<div class="col-lg-6 col-md-6 mb-sm-3">
-									<ul>
-										<li class="dropdown-header">Páginas</li>
-										<li role="separator" class="divider"></li>
-										<li><a href="shop.html">Comprar</a></li>
-										<li><a href="checkout.html">Checkout</a></li>
-										<li><a href="cart.html">Carrito</a></li>
-										<li><a href="pricing.html">Precios</a></li>
-										<li><a href="confirmation.html">Confirmación</a></li>
-
-									</ul>
-								</div>
-
-								<!-- Layout -->
-								<div class="col-lg-6 col-md-6 mb-sm-3">
-									<ul>
-										<li class="dropdown-header">Diseño</li>
-										<li role="separator" class="divider"></li>
-										<li><a href="product-single.html">Detalles del producto</a></li>
-										<li><a href="shop-sidebar.html">Comprar con barra lateral</a></li>
-
-									</ul>
-								</div>
-
-							</div><!-- / .row -->
-						</div><!-- / .dropdown-menu -->
-					</li><!-- / Elements -->
-
+					<!-- Comprar -->
+					<li class="dropdown ">
+						<a class="nav-link" href="../catalogo">Comprar</a>
+					</li><!-- / Comprar -->
+					
 
 					<!-- Pages -->
 					<li class="dropdown full-width dropdown-slide">
@@ -228,10 +165,8 @@
 									<ul>
 										<li class="dropdown-header">Dashboard</li>
 										<li role="separator" class="divider"></li>
-										<li><a href="dashboard.html">Interfaz de Usuario</a></li>
 										<li><a href="order.html">Órdenes</a></li>
 										<li><a href="address.html">Dirección</a></li>
-										<li><a href="profile-details.html">Detalles del perfil</a></li>
 									</ul>
 								</div>
 
@@ -240,9 +175,9 @@
 									<ul>
 										<li class="dropdown-header">Utilidades</li>
 										<li role="separator" class="divider"></li>
-										<li><a href=" ">Página Login</a></li>
-										<li><a href="signin.html">Página de Registro</a></li>
-										<li><a href="forget-password.html">Olvidé mi Password</a></li>
+										<li><a href="../login">Página Login</a></li>
+										<li><a href="../registro">Página de Registro</a></li>
+										<li><a href="#">Olvidé mi Password</a></li>
 									</ul>
 								</div>
 
@@ -260,6 +195,10 @@
 
 			</div>
 			<!--/.navbar-collapse -->
+
+			<!-- Para mostrar el nombre de usuario de hacer logout *Considerar cambiarlo de ubicación -->
+			<span>Hola, {{request.user}}</span>
+			<span><a href="../logout"></span>
 		</div><!-- / .container -->
 	</nav>
 </section>
@@ -282,7 +221,7 @@ Start Call To Action
 			<div class="col-md-12 text-center">
 				<div class="title">
 					<h2>SUSCRÍBETE A NUESTRO NEWSLETTER</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, <br> facilis numquam impedit ut sequi. Minus facilis vitae excepturi sit laboriosam.</p>
+					<p>Si quieres enterarte de las novedades, <br> avances y nuevas temporadas, ingresa tu correo aquí.</p>
 				</div>
 				<div class="col-lg-6 col-md-offset-3">
 				    <div class="input-group subscription-form">
@@ -337,7 +276,7 @@ Start Call To Action
 					</li>
 
 				</ul>
-				<p class="copyright-text">Copyright &copy;2021, Designed &amp; Developed by <a href="https://themefisher.com/">INQODE</a></p>
+				<p class="copyright-text">Copyright &copy;2022, Designed &amp; Developed by <a href=" ">INQODE</a></p>
 			</div>
 		</div>
 	</div>
