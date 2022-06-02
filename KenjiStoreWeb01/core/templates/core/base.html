@@ -18,7 +18,7 @@
   <meta name="generator" content="Themefisher Constra HTML Template v1.0">
   
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.png' %}" />
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/kenji_logo.png' %}" />
   
   <!-- Themefisher Icon font -->
   
@@ -130,7 +130,7 @@
 
 					<!-- Home -->
 					<li class="dropdown ">
-						<a class="nav-link" href="/">Principal</a>
+						<a class="nav-link" href="../index">Principal</a>
 					</li><!-- / Home -->
 
 
@@ -195,6 +195,10 @@
 
 			</div>
 			<!--/.navbar-collapse -->
+
+			<!-- Para mostrar el nombre de usuario de hacer logout *Considerar cambiarlo de ubicación -->
+			<span>Hola, {{request.user}}</span>
+			<span><a href="../logout"></span>
 		</div><!-- / .container -->
 	</nav>
 </section>
@@ -272,7 +276,7 @@ Start Call To Action
 					</li>
 
 				</ul>
-				<p class="copyright-text">Copyright &copy;2021, Designed &amp; Developed by <a href="https://themefisher.com/">INQODE</a></p>
+				<p class="copyright-text">Copyright &copy;2022, Designed &amp; Developed by <a href=" ">INQODE</a></p>
 			</div>
 		</div>
 	</div>

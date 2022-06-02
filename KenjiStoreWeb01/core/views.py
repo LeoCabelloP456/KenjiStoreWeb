@@ -4,8 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 '''Se importa redirect para redireccionar páginas con {% url 'pagina' %}'''
 from django.shortcuts import render, redirect
 
-'''Para complementar con la redirección de url'''
-from django.http import HttpResponse
+
 
 '''Se importa Formulario de registro'''
 from django.contrib.auth.forms import UserCreationForm
@@ -42,7 +41,7 @@ def registroPag(request):
             user = form.cleaned_data.get('username')
             messages.success(request, 'Tu cuenta ha sido creada, ' + user)
 
-            return redirect('login')
+            return redirect('../login')
 
     context = {'form':form}
     return render(request, 'core/registro.html', context)
@@ -56,10 +55,16 @@ def loginPag(request):
 
         if user is not None:
             login(request, user)
-            return redirect('index')
+            return redirect('../index')
+        else:
+            messages.info(request, 'Usuario o contraseña incorrecta')
 
     context = {}
     return render(request, 'core/login.html', context)
+
+def logoutUser(request):
+    logout(request)
+    return redirect('../login')
 
 
 '''definimos una función para cada producto'''

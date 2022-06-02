@@ -6,11 +6,12 @@ from . import views
 app_name = 'core'
 
 urlpatterns = [
-    path ('', views.index, name= "index"),
+    path ('index/', views.index, name= "index"),
     path('catalogo/', views.catalogo, name = 'lista_catalogo'),
 
     path('registro/', views.registroPag, name="registro"),
     path('login/', views.loginPag, name="login"),
+    path('logout/', views.logoutUser, name="logout"),
 
     path('producto1/', views.producto1, name="producto1"),
     path('producto2/', views.producto2, name="producto2"),

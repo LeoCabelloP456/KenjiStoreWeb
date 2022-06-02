@@ -46,14 +46,13 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <div class="block text-center">
-          <a class="logo" href="index.html">
-            <img src="images/logo.png" alt="">
+          <a class="logo" href="index">
+            <img src="{% static 'images/kenji_logo2.jpeg'%}" alt="" style="height:2cm;">
           </a>
 
           <h2 class="text-center">Bienvenido a KenjiStore</h2>
-          <form method="POST" class="text-left clearfix" action="index.html" >
+          <form method="POST" class="text-left clearfix" action="" >
             {% csrf_token %}
-
             <div class="form-group">
               <input type="text" name="username" placeholder="Nombre de usuari@" class="form-control">
             </div>
@@ -72,7 +71,7 @@
 				  {% endfor %}		
 		
 				  <div class="mt-20">
-						¿Aún no creas tu cuenta? <a href="registro.html">¡Regístrate ahora!</a>			
+						¿Aún no creas tu cuenta? <a href="../registro">¡Regístrate ahora!</a>			
 				  </div>
 
         </div>
