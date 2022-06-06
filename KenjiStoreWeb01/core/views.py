@@ -1,4 +1,6 @@
 from multiprocessing import context
+
+'''Con authenticate valido que el usuari@ exista en la BD'''
 from django.contrib.auth import authenticate, login, logout
 
 '''Se importa redirect para redireccionar páginas con {% url 'pagina' %}'''
@@ -18,6 +20,9 @@ from .models import *
 
 '''FormularioRegistro va a reemplazar al UserCreationForm por defecto de Django'''
 from .forms import FormularioRegistro
+
+'''Para restringir el acceso a templates de usuarios registrados'''
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -65,6 +70,8 @@ def loginPag(request):
 def logoutUser(request):
     logout(request)
     return redirect('../login')
+
+
 
 
 '''definimos una función para cada producto'''
