@@ -72,49 +72,20 @@ def logoutUser(request):
     return redirect('../login')
 
 
-
-
-'''definimos una función para cada producto'''
+'''definimos una función para el producto'''
 # pasar por url a la vista
 
-def producto(request, pk):
-    context = {    }
+def single_producto(request, pk):
+    context = {}
     # crear template producto
-    producto = Item.objects.filter(pk=pk).first()
+    productos = Item.objects.filter(pk=pk).first()
     # validar que tenga producto ( get object or 404)
 
 
-    context['producto'] = producto
-    return render(request, "core/productos/producto.html", context) # hacer template producto detalle
+    context['single_producto'] = productos
+    return render(request, "core/productos/single_producto.html", context) # hacer template producto detalle
 
-def producto1(request):
-    context = {    }
-    return render(request, "core/productos/producto1.html", context)
 
-def producto2(request):
+def producto_ejemplo(request):
     context = {    }
-    return render(request, "core/productos/producto2.html", context)
-
-def producto3(request):
-    context = {    }
-    return render(request, "core/productos/producto3.html", context)
-
-def producto4(request):
-    context = {    }
-    return render(request, "core/productos/producto4.html", context)
-
-def producto5(request):
-    context = {    }
-    return render(request, "core/productos/producto5.html", context)
-
-def producto6(request):
-    context = {    }
-    return render(request, "core/productos/producto6.html", context)
-
-def producto7(request):
-    context = {    }
-    return render(request, "core/productos/producto7.html", context)
-
-def producto8(request):
-    context = {    }
-    return render(request, "core/productos/producto8.html", context)
+    return render(request, "core/productos/producto_ejemplo.html", context)
