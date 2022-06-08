@@ -70,6 +70,7 @@ def logoutUser(request):
     return redirect('../login')
 
 
+<<<<<<< HEAD
 def cart(request):
 
 	if request.user.is_authenticated:
@@ -97,6 +98,20 @@ def single_producto(request, pk):
 
     context['single_producto'] = productos
     return render(request, "core/productos/single_producto.html", context) # hacer template producto detalle
+=======
+'''definimos una función para el producto'''
+# pasar por url a la vista
+
+def single_producto(request, pk=None):
+    context = {}
+    # crear template producto
+    productos = Item.objects.filter(pk=pk, item_id=request.id).first()
+    # validar que tenga producto ( get object or 404)
+
+
+    context[Item] = productos
+    return render(request, "core/productos/single_producto.html", context) 
+>>>>>>> 062ddef69d97046e26a4152776be12e3eb9959ce
 
 
 def producto_ejemplo(request):
