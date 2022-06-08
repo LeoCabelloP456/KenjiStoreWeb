@@ -75,15 +75,15 @@ def logoutUser(request):
 '''definimos una función para el producto'''
 # pasar por url a la vista
 
-def single_producto(request, pk):
+def single_producto(request, pk=None):
     context = {}
     # crear template producto
-    productos = Item.objects.filter(pk=pk).first()
+    productos = Item.objects.filter(pk=pk, item_id=request.id).first()
     # validar que tenga producto ( get object or 404)
 
 
-    context['single_producto'] = productos
-    return render(request, "core/productos/single_producto.html", context) # hacer template producto detalle
+    context[Item] = productos
+    return render(request, "core/productos/single_producto.html", context) 
 
 
 def producto_ejemplo(request):
