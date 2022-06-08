@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<H2>PRUEBA</H2>
+
+<div class="row">
+
+{% for prod in productos %}
+
+    <div class="card" style="width: 100%;">
+    
+        <div class="card_body">
+
+            <h7 class="card-title">{{prod.nombre}}</h7>
+
+            <h7 class="card-title">{{prod.autor}}</h7>
+
+            <h7 class="card-title">{{prod.editorial}}</h7>
+
+            <h7 class="card-title">{{prod.precio}}</h7>
+
+        </div>
+    
+    </div>
+
+{% endfor %}
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
