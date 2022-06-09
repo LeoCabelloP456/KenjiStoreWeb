@@ -1,0 +1,135 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<section class="page-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="content">
+					<h1 class="page-name">Datos de envío</h1>
+					<ol class="breadcrumb">
+						<li><a href="../index">Principal</a></li>
+						<li class="active">Datos de envío</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="page-wrapper">
+    <div class="checkout shopping">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="block billing-details">
+                        <h4 class="widget-title">Detalles de factura</h4>
+                        <form class="checkout-form">
+                            <div class="checkout-country-code clearfix">
+                            <div class="form-group">
+                                <label for="full_name">Nombre completo</label>
+                                <input type="text" class="form-control" id="full_name" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="user_email">Email</label>
+                                <input type="email" class="form-control" id="full_name" placeholder="">
+                            </div>
+                            </div>
+                             <div class="form-group">
+                                <label for="user_address">Dirección</label>
+                                <input type="text" class="form-control" id="user_address" placeholder="">
+                             </div>
+                             <div class="checkout-country-code clearfix">
+                                <div class="form-group">
+                                   <label for="user_post_code">Código Postal</label>
+                                   <input type="text" class="form-control" id="user_post_code" name="zipcode" value="">
+                                </div>
+                            <div class="form-group" >
+                                    <label for="user_city">Ciudad</label>
+                                    <input type="text" class="form-control" id="user_city" name="city" value="">
+                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="user_country">País</label>
+                                <input type="text" class="form-control" id="user_country" placeholder="">
+                             </div>
+                          </form>
+                    </div>
+
+                  <!----  <div class="block">
+                        <h4 class="widget-title">Método de Pago</h4>
+                        <p>Detalles de tarjeta de Crédito (Pago seguro)</p>
+                        <div class="checkout-product-details">
+                           <div class="payment">
+                              <div class="card-details">
+                                 <form  class="checkout-form">
+                                    <div class="form-group">
+                                       <label for="card-number">Número de tarjeta <span class="required">*</span></label>
+                                       <input  id="card-number" class="form-control"   type="tel" placeholder="•••• •••• •••• ••••">
+                                    </div>
+                                    <div class="form-group half-width padding-right">
+                                       <label for="card-expiry">Expiración (MM/AA) <span class="required">*</span></label>
+                                       <input id="card-expiry" class="form-control" type="tel" placeholder="MM / YY">
+                                    </div>
+                                    <div class="form-group half-width padding-left">
+                                       <label for="card-cvc">Código de Tarjeta <span class="required">*</span></label>
+                                       <input id="card-cvc" class="form-control"  type="tel" maxlength="4" placeholder="CVC" >
+                                    </div>
+                                    <a href="confirmation.html" class="btn btn-main mt-20">Realizar Pedido</a >
+                                 </form>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                -->
+
+                </div>    
+                
+                <div class="col-md-4">
+                    <div class="product-checkout-details">
+                       <div class="block">
+                          <h4 class="widget-title">Resumen del pedido</h4>
+                          {% for item in items %}
+                          <div class="media product-card">
+                             <a class="pull-left" href="product-single.html">
+                                <div style="flex:2"><img class="row-image" width="80" src="{{item.item.imagen.url}}">
+                             </a>
+                             <div class="media-body">
+                                <h4 class="media-heading"><a href="product-single.html">Nombre del producto: {{item.item.nombre}}</a></h4>
+                                <p class="quantity">Cantidad: {{item.quantity}}</p>
+                                <p class="price">Precio: ${{item.item.precio}}</p>
+                                <span class="remove">Quitar</span>
+                             </div>
+                          </div>
+                          <ul class="summary-prices">
+                             <li>
+                                <span>Subtotal:</span>
+                                <span class="price">${{item.item.precio}}</span>
+                             </li>
+                          </ul>
+                          {% endfor %}
+
+                          <div class="summary-total">
+                             <span>Total de Items:   {{order.get_cart_items}}</span>
+                             <span>Total:   ${{order.get_cart_total}}</span>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+
+
+
+
+
+
+    </div>
+</div>
+{% endblock content %}
+
+
+
+
