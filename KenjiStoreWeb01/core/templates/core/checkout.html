@@ -22,37 +22,47 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="block billing-details">
-                        <h4 class="widget-title">Detalles de factura</h4>
+                        <h4 class="widget-title">Envío</h4>
                         <form class="checkout-form">
-                            <div class="checkout-country-code clearfix">
-                            <div class="form-group">
-                                <label for="full_name">Nombre completo</label>
-                                <input type="text" class="form-control" id="full_name" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="user_email">Email</label>
-                                <input type="email" class="form-control" id="full_name" placeholder="">
-                            </div>
-                            </div>
-                             <div class="form-group">
-                                <label for="user_address">Dirección</label>
-                                <input type="text" class="form-control" id="user_address" placeholder="">
-                             </div>
-                             <div class="checkout-country-code clearfix">
+                            <form id="form">
+                                <div class="checkout-country-code clearfix">
                                 <div class="form-group">
-                                   <label for="user_post_code">Código Postal</label>
-                                   <input type="text" class="form-control" id="user_post_code" name="zipcode" value="">
+                                    <label for="full_name">Nombre completo</label>
+                                    <input type="text" class="form-control" id="full_name" placeholder="">
                                 </div>
-                            <div class="form-group" >
-                                    <label for="user_city">Ciudad</label>
-                                    <input type="text" class="form-control" id="user_city" name="city" value="">
-                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="user_country">País</label>
-                                <input type="text" class="form-control" id="user_country" placeholder="">
-                             </div>
-                          </form>
+                                <div class="form-group">
+                                    <label for="user_email">Email</label>
+                                    <input type="email" class="form-control" id="full_name" placeholder="">
+                                </div>
+                                </div>
+
+                                <div id = "shipping_info">
+                                    <div class="form-group">
+                                        <label for="user_address">Dirección</label>
+                                        <input type="text" class="form-control" id="user_address" placeholder="">
+                                    </div>
+                                    <div class="checkout-country-code clearfix">
+                                        <div class="form-group">
+                                        <label for="user_post_code">Código Postal</label>
+                                        <input type="text" class="form-control" id="user_post_code" name="zipcode" value="">
+                                        </div>
+                                    <div class="form-group" >
+                                            <label for="user_city">Ciudad</label>
+                                            <input type="text" class="form-control" id="user_city" name="city" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="user_country">País</label>
+                                        <input type="text" class="form-control" id="user_country" placeholder="">
+                                    </div>
+                                </div>
+                            </form>
+                            <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continuar">
+                        </form>
+                    </div>
+                    <br>
+                    <div class="box-element hidden" id="payment-info">
+                        <small>Opciones Paypal</small>
                     </div>
 
                   <!----  <div class="block">
@@ -128,6 +138,20 @@
 
     </div>
 </div>
+<script type="text/javascript">
+    var shipping = '{{order.shipping}}'
+    if (shipping == 'False'){
+        document.getElementById('shipping_info').innerHTML = ''
+    }
+    
+    var form = document.getElementById('form')
+		form.addEventListener('submit', function(e){
+	    	e.preventDefault()
+	    	console.log('Formulario Enviado...')
+	    	document.getElementById('form-button').classList.add("hidden");
+	    	document.getElementById('payment-info').classList.remove("hidden");
+	    })
+</script>
 {% endblock content %}
 
 

@@ -5,8 +5,6 @@ from django.contrib.auth import authenticate, login, logout
 '''Se importa redirect para redireccionar páginas con {% url 'pagina' %}'''
 from django.shortcuts import render, redirect
 
-
-
 '''Se importa Formulario de registro'''
 from django.contrib.auth.forms import UserCreationForm
 
@@ -23,6 +21,11 @@ from .forms import FormularioRegistro
 '''Para restringir el acceso a templates de usuarios registrados'''
 from django.contrib.auth.decorators import login_required
 
+'''Para poder devolver el mensaje en la vista de update_item'''
+from django.http import JsonResponse
+
+'''Para cargar la libería loads en la función de update_item'''
+import json
 
 def index(request):
     return render(request, 'core/index.html')
@@ -76,12 +79,14 @@ def cart(request):
 		customer = request.user.customer
 		order, created = Order.objects.get_or_create(customer=customer, complete=False)
 		items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
 	else:
 		#Create empty cart for now for non-logged in user
 		items = []
-		order = {'get_cart_total':0, 'get_cart_items':0}
+		order = {'get_cart_total':0, 'get_cart_items':0, 'shipping':False}
+        cartItems = order['get_cart_items']
 
-	context = {'items':items, 'order':order}
+	context = {'items':items, 'order':order, 'cartItems': cartItems}
 	return render(request, 'core/cart.html', context)
 
 def checkout(request):
@@ -89,12 +94,32 @@ def checkout(request):
 		customer = request.user.customer
 		order, created = Order.objects.get_or_create(customer=customer, complete=False)
 		items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
 	else:
-		order = {'get_cart_total':0, 'get_cart_items':0}
+		order = {'get_cart_total':0, 'get_cart_items':0, 'shipping':False}
 		items = []
+        cartItems = order['get_cart_items']
 
-	context = {'items':items, 'order':order}
+	context = {'items':items, 'order':order, 'cartItems': cartItems}
 	return render(request, 'core/checkout.html', context)
+
+
+def store(request):
+
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+        
+    else:
+        items = []
+        order = {'get_cart_total':0, 'get_cart_items':0, 'shipping':False}
+        cartItems = order ['get_cart_items']
+        
+    products = Item.object.all()
+    context = {'items':items, 'cartItems':cartItems}
+    return render(request, 'core/store.html', context)
 
 
 '''definimos una función para el producto'''
@@ -111,6 +136,31 @@ def single_producto(request, pk):
     return render(request, "core/productos/single_producto.html", context) # hacer template producto detalle
 
 
-def producto_ejemplo(request):
-    context = {    }
-    return render(request, "core/productos/producto_ejemplo.html", context)
+def updateItem(request):
+    data = json.loads(request.data)
+    productId = data ['productId']
+    action = data ['action']
+
+    print('Action:', action)
+    print('Product:', productId)
+
+    customer = request.user.customer
+    product = Item.objects.get(id=productId)
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+
+    orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
+
+    if action == 'add':
+        orderItem.quantity = (orderItem.quantity + 1)
+
+    elif action =='remove':
+         orderItem.quantity = (orderItem.quantity - 1)
+    
+    orderItem.save()
+
+    if orderItem.quantity <= 0:
+        orderItem.delete()
+
+    
+    return JsonResponse('Producto agregado', safe=False)
+
