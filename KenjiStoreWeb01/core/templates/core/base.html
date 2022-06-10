@@ -87,36 +87,37 @@ var csrftoken = getToken('csrftoken');
 			<div class="col-md-4 col-xs-12 col-sm-4">
 				<!-- Cart -->
 				<ul class="top-menu text-right list-inline">
-					<li class="dropdown cart-nav dropdown-slide">
 
-						<a href="../cart">
-							<img id="cart-icon" src="{% static 'images/cart.png' %}">
-						</a>
-						<p id="cart-total">{{cartItems}}</p>
-						<div class="dropdown-menu cart-dropdown">
-							<!-- Cart Item -->
-							<!--Saqué todo el código que había aquí, porque eran productos comprados del template original-->
+						<li class="dropdown cart-nav dropdown-slide">
+							
+								<a href="../cart">
+									<img id="cart-icon" src="{% static 'images/cart.png' %}">
+								</a>
+								<p id="cart-total">{{cartItems}}</p>
+								<div class="dropdown-menu cart-dropdown">
+									<!-- Cart Item -->
+									<!--Saqué todo el código que había aquí, porque eran productos comprados del template original-->
 
-							<ul class="text-center cart-buttons">
-								<li><a href="../cart" class="btn btn-small">View Cart</a></li>
-								<li><a href="../checkout" class="btn btn-small btn-solid-border">Checkout</a></li>
+									<ul class="text-center cart-buttons">
+										<li><a href="../cart" class="btn btn-small">View Cart</a></li>
+										<li><a href="../checkout" class="btn btn-small btn-solid-border">Checkout</a></li>
+									</ul>
+								</div>
+							
+
+						</li><!-- / Cart -->
+
+						<!-- Search -->
+						<li class="dropdown search dropdown-slide">
+							<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
+									class="tf-ion-ios-search-strong"></i> Buscar</a>
+							<ul class="dropdown-menu search-dropdown">
+								<li>
+									<form action="post"><input type="search" class="form-control" placeholder="Ingresa producto..."></form>
+								</li>
 							</ul>
-						</div>
-
-					</li><!-- / Cart -->
-
-					<!-- Search -->
-					<li class="dropdown search dropdown-slide">
-						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
-								class="tf-ion-ios-search-strong"></i> Buscar</a>
-						<ul class="dropdown-menu search-dropdown">
-							<li>
-								<form action="post"><input type="search" class="form-control" placeholder="Ingresa producto..."></form>
-							</li>
-						</ul>
-					</li><!-- / Search -->
-
-				</ul><!-- / .nav .navbar-nav .navbar-right -->
+						</li>
+				</ul>
 			</div>
 		</div>
 	</div>

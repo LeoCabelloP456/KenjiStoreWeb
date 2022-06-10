@@ -60,6 +60,8 @@
         </div>
     </div>
 -->
+<body id="body">
+
     <div class="page-wrapper">
         <div class="cart shopping">
             <div class="container">
@@ -87,16 +89,16 @@
                                                     </div>
                                                 </td>
                                                 <td class="">${{item.item.precio}}</td>
-
-                                                <td class="">{{item.quantity}}</td>
                                                 <div class="quantity">
-                                                    <img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart"
-                                                    src="{% static 'images/arrow-up.png %}">
+                                                    <td class="">{{item.quantity}}
+                                                    
+                                                            <img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart"
+                                                            src="{% static 'images/arrow-up.png' %}" style="height: 10px;">
 
-                                                    <img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart"
-                                                    src="{% static 'images/arrow-down.png %}">
-                            
-                                                    <img class="chg-quantity" src="">
+                                                            <img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart"
+                                                            src="{% static 'images/arrow-down.png' %}" style="height: 10px;">
+                                                    
+                                                    </td>
                                                 </div>
                                                 <td class="">
                                                     <a class="product-remove" href="#!">Eliminar</a>                                               
@@ -129,5 +131,6 @@
         </div>
     </div>
 </div>
+</body>
 
 {% endblock content %}
