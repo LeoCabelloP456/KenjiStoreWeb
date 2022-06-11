@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="block billing-details">
-                        <h4 class="widget-title">Envío</h4>
+                        <h4 class="widget-title">Datos personales</h4>
                         <form class="checkout-form">
                             <form id="form">
                               
@@ -36,65 +36,87 @@
                                     <input type="email" class="form-control" id="full_name" placeholder="">
                                 </div>
                                 </div>
-
+                                <br>
+                           <h4 class="widget-title">Direccion de Entrega</h4>
+                              <form class="checkout-form">
                                 <div id = "shipping_info">
                                     <div class="form-group">
-                                        <label for="user_address">Dirección</label>
-                                        <input type="text" class="form-control" id="user_address" placeholder="">
-                                    </div>
-                                    <div class="checkout-country-code clearfix">
-                                        <div class="form-group">
-                                        <label for="user_post_code">Código Postal</label>
-                                        <input type="text" class="form-control" id="user_post_code" name="zipcode" value="">
-                                        </div>
-                                    <div class="form-group" >
-                                            <label for="user_city">Ciudad</label>
-                                            <input type="text" class="form-control" id="user_city" name="city" value="">
-                                        </div>
+                                        <label for="address">Dirección</label>
+                                        <input type="text" class="form-control" id="address" placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label for="user_country">País</label>
-                                        <input type="text" class="form-control" id="user_country" placeholder="">
+                                       <label for="country">País</label>
+                                       <input type="text" class="form-control" id="country" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                       <label for="state">Región</label>
+                                       <input type="text" class="form-control" id="state" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                       <label for="city">Ciudad</label>
+                                       <input type="text" class="form-control" id="city" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                       <label for="comuna">Comuna</label>
+                                       <input type="text" class="form-control" id="comuna" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                       <label for="street_number">Número de calle</label>
+                                       <input type="text" class="form-control" id="street_number" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="zipcode">Código Postal</label>
+                                        <input type="text" class="form-control" id="zipcode">
+                                    </div>
+                                    <div class="form-group">
+                                          <label for="block_number">Número de block</label>
+                                          <input type="text" class="form-control" id="block_number">
+                                    </div>                                  
+                                    <div class="form-group">
+                                        <label for="phone_number">Número de teléfono</label>
+                                        <input type="text" class="form-control" id="phone_number" placeholder="">
                                     </div>
                                 </div>
                             </form>
-                            <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continuar">
+
+                           <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continuar">
                         </form>
-                    </div>
+                     </div>
                     <br>
                     <div class="box-element hidden" id="payment-info">
                         <small>Opciones Paypal</small>
                     </div>
-
-                  <!----  <div class="block">
-                        <h4 class="widget-title">Método de Pago</h4>
-                        <p>Detalles de tarjeta de Crédito (Pago seguro)</p>
-                        <div class="checkout-product-details">
-                           <div class="payment">
-                              <div class="card-details">
-                                 <form  class="checkout-form">
-                                    <div class="form-group">
-                                       <label for="card-number">Número de tarjeta <span class="required">*</span></label>
-                                       <input  id="card-number" class="form-control"   type="tel" placeholder="•••• •••• •••• ••••">
-                                    </div>
-                                    <div class="form-group half-width padding-right">
-                                       <label for="card-expiry">Expiración (MM/AA) <span class="required">*</span></label>
-                                       <input id="card-expiry" class="form-control" type="tel" placeholder="MM / YY">
-                                    </div>
-                                    <div class="form-group half-width padding-left">
-                                       <label for="card-cvc">Código de Tarjeta <span class="required">*</span></label>
-                                       <input id="card-cvc" class="form-control"  type="tel" maxlength="4" placeholder="CVC" >
-                                    </div>
-                                    <a href="confirmation.html" class="btn btn-main mt-20">Realizar Pedido</a >
-                                 </form>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
                   </div>
-                -->
 
-                </div>    
+                                    <!----  <div class="block">
+                                          <h4 class="widget-title">Método de Pago</h4>
+                                          <p>Detalles de tarjeta de Crédito (Pago seguro)</p>
+                                          <div class="checkout-product-details">
+                                             <div class="payment">
+                                                <div class="card-details">
+                                                   <form  class="checkout-form">
+                                                      <div class="form-group">
+                                                         <label for="card-number">Número de tarjeta <span class="required">*</span></label>
+                                                         <input  id="card-number" class="form-control"   type="tel" placeholder="•••• •••• •••• ••••">
+                                                      </div>
+                                                      <div class="form-group half-width padding-right">
+                                                         <label for="card-expiry">Expiración (MM/AA) <span class="required">*</span></label>
+                                                         <input id="card-expiry" class="form-control" type="tel" placeholder="MM / YY">
+                                                      </div>
+                                                      <div class="form-group half-width padding-left">
+                                                         <label for="card-cvc">Código de Tarjeta <span class="required">*</span></label>
+                                                         <input id="card-cvc" class="form-control"  type="tel" maxlength="4" placeholder="CVC" >
+                                                      </div>
+                                                      <a href="confirmation.html" class="btn btn-main mt-20">Realizar Pedido</a >
+                                                   </form>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 -->
+
+                 
                 
                 <div class="col-md-4">
                     <div class="product-checkout-details">
@@ -127,7 +149,9 @@
                        </div>
                     </div>
                  </div>
+               </div>  
               </div>
+         </div>
            </div>
         </div>
      </div>

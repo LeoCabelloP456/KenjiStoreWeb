@@ -3,10 +3,10 @@ var updateBtns = document.getElementsByClassName('update-cart')
 
 for (var i = 0; i < updateBtns.length; i++) {
 	updateBtns[i].addEventListener('click', function(){
-		var productId = this.dataset.product
+		var itemId = this.dataset.item
 		var action = this.dataset.action
 		console.log(action)
-		console.log('productId:', productId, 'action:', action)
+		console.log('itemId:', itemId, 'action:', action)
     
         
         console.log('USER:', user)
@@ -15,13 +15,13 @@ for (var i = 0; i < updateBtns.length; i++) {
                     
         }else{
 			console.log('Test')
-            updateUserOrder(productId, action)
+            updateUserOrder(itemId, action)
         }
 
 	})
 }
 
-function updateUserOrder(productId, action){
+function updateUserOrder(itemId, action){
 	var csrf_token = jQuery("[name=csrfmiddlewaretoken]").val();
 	console.log(csrf_token) 
 	//console.log('Usuario autenticado. Enviando datos...')
@@ -34,7 +34,7 @@ function updateUserOrder(productId, action){
 				'Content-Type':'application/json',
 				'X-CSRFToken': csrf_token,
 			}, 
-			body:JSON.stringify({'productId':productId, 'action':action})
+			body:JSON.stringify({'itemId':itemId, 'action':action})
 		})
 		.then((response) => {
 		   return response.json();
