@@ -18,6 +18,7 @@ from django.http import JsonResponse
 '''Para cargar la libería loads en la función de update_item'''
 import json
 
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 def index(request):
@@ -85,7 +86,6 @@ def cart(request):
     context = {'items': items, 'order': order, 'cartItems': cartItems}
     return render(request, 'core/cart.html', context)
 
-
 def checkout(request):
     if request.user.is_authenticated:
         customer = request.user.customer
@@ -136,7 +136,8 @@ def single_producto(request, pk):
 
 
 def updateItem(request):
-    data = json.loads(request.data)
+    print('´test')
+    data = json.loads(request.body)
     productId = data['productId']
     action = data['action']
 
@@ -149,7 +150,7 @@ def updateItem(request):
         customer=customer, complete=False)
 
     orderItem, created = OrderItem.objects.get_or_create(
-        order=order, product=product)
+        order=order, item=product)
 
     if action == 'add':
         orderItem.quantity = (orderItem.quantity + 1)
@@ -163,3 +164,4 @@ def updateItem(request):
         orderItem.delete()
 
     return JsonResponse('Producto agregado', safe=False)
+
