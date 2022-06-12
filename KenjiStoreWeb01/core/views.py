@@ -21,6 +21,8 @@ import json
 import datetime
 
 from django.views.decorators.csrf import csrf_exempt
+
+from .utils import cookieCart
 # Create your views here.
 
 def index(request):
@@ -80,10 +82,42 @@ def cart(request):
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
     else:
+        try:
         # Create empty cart for now for non-logged in user
+            cart = json.loads(request.COOKIES['cart'])
+        except:
+            cart = {}
+        print('Cart:', cart)
         items = []
         order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
         cartItems = order['get_cart_items']
+
+        for i in cart:
+            try:
+                cartItems += cart[i]["quantity"]
+                item = Item.objects.get(id=i)
+                total = (item.precio * cart[i]["quantity"])
+
+                order['get_cart_total'] += total
+                order['get_cart_items'] += cart[i]["quantity"]
+
+                item = {
+                'product':{
+                    'id':item.id,
+                    'name':item.name, 
+                    'price':item.precio, 
+                    'image':item.imagen
+                    }, 
+                'quantity':cart[i]['quantity'],
+                'get_total':total
+                    }
+                items.append(item)
+
+                if item.digital == False:
+                    order['shipping'] = True
+            except:
+                pass
+            
 
     context = {'items': items, 'order': order, 'cartItems': cartItems}
     return render(request, 'core/cart.html', context)
