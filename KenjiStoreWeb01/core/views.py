@@ -17,6 +17,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 '''Para cargar la libería loads en la función de update_item'''
 import json
+'''Para mostrar la información en el transactionID'''
+import datetime
 
 from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
@@ -164,4 +166,37 @@ def updateItem(request):
         orderItem.delete()
 
     return JsonResponse('Producto agregado', safe=False)
+
+def processOrder(request):
+    transaction_id = datetime.datetime.now().timestamp()
+    data = json.loads(request.body)
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        total = float(data['form']['total'])    #igual creo que no debiese ser con float, ya que son números enteros la cantidad total
+        order.transaction_id = transaction_id
+
+        if total == order.get_cart_total:
+            order.complete = True
+        order.save()
+
+        if order.shipping == True:
+            ShippingAddress.objects.create(
+                customer = customer,
+                order = order,
+                address = data['shipping']['address'],
+                country = data['shipping']['country'],
+                city = data['shipping']['city'],
+                state = data['shipping']['state'],
+                comuna = data['shipping']['comuna'],
+                zipcode = data['shipping']['zipcode'],
+                street_number = data['shipping']['street_number'],
+                block_number = data['shipping']['block_number'],
+                phone_number = data['shipping']['phone_number'],
+            )
+
+    else:
+        print('El usuario aún no ha iniciado sesión')
+
+    return JsonResponse('Pago completo...', safe=False)
 

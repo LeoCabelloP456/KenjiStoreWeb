@@ -5,7 +5,7 @@
 {% block content %}
 
 <body id="body">
-
+<div class="container">
 	<div class="container">
 		 <h3>Noticias</h3>
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -43,128 +43,124 @@
 		</div>
 	  </div>
 
-
-  
-  
   <!--/.RECOMENDACIONES -->
- <section class="products section bg-gray">
-	<div class="container">
-		<div class="row">
-			<div class="title text-center">
-				<h2>RECOMENDACIONES</h2>
-			</div>
-		</div>
+	<section class="products section bg-gray">
+			<div class="container">
+				<div class="row">
+					<div class="title text-center">
+						<h2>RECOMENDACIONES</h2>
+					</div>
+				</div>
 
-		<!--/.primera fila, con sus 3 columnas -->
-		<div class="row">
-			
-			<div class="col-md-4">
-				<div class="product-item">
-					<div class="product-thumb">
-						<span class="bage">Venta</span>
-						<img class="img-responsive" src="{% static 'images/shop/products/id1.png' %}" alt="product-img" />
+				<!--/.primera fila, con sus 3 columnas -->
+				<div class="row">
+					
+					<div class="col-sm-4">
+						<div class="product-item">
+							<div class="product-thumb">
+								<span class="bage">Venta</span>
+								<img class="img-responsive" src="{% static 'images/shop/products/id1.png' %}" alt="product-img" />
+							</div>
+							<div class="product-content">
+								<h4><a href="product-single.html">Requiem por el rey de la rosa</a></h4>
+							</div>
+						</div>
 					</div>
-					<div class="product-content">
-						<h4><a href="product-single.html">Requiem por el rey de la rosa</a></h4>
+					<div class="col-sm-4">
+						<div class="product-item">
+							<div class="product-thumb">
+								<img class="img-responsive" src="{% static 'images/shop/products/id2.png' %}" alt="product-img" />
+							</div>
+							<div class="product-content">
+								<h4><a href="product-single.html">Sun-KenRock</a></h4>
+							</div>
+						</div>
 					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="product-item">
-					<div class="product-thumb">
-						<img class="img-responsive" src="{% static 'images/shop/products/id2.png' %}" alt="product-img" />
+					<div class="col-sm-4">
+						<div class="product-item">
+							<div class="product-thumb">
+								<img class="img-responsive" src="{% static 'images/shop/products/id3.png' %}" alt="product-img" />
+							</div>
+							<div class="product-content">
+								<h4><a href="product-single.html">Beastars</a></h4>
+							</div>
+						</div>
 					</div>
-					<div class="product-content">
-						<h4><a href="product-single.html">Sun-KenRock</a></h4>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="product-item">
-					<div class="product-thumb">
-						<img class="img-responsive" src="{% static 'images/shop/products/id3.png' %}" alt="product-img" />
-					</div>
-					<div class="product-content">
-						<h4><a href="product-single.html">Beastars</a></h4>
-					</div>
-				</div>
-			</div>
-		</div>	
+				</div>	
 
-		<!--/.segunda fila, con sus 3 columnas -->
-			
-		<div class="row">
-			<div class="col-md-4">
-				<div class="product-item">
-					<div class="product-thumb">
-						<img class="img-responsive" src="{% static 'images/shop/products/id4.png' %}" alt="product-img" />
+				<!--/.segunda fila, con sus 3 columnas -->
+				
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="product-item">
+							<div class="product-thumb">
+								<img class="img-responsive" src="{% static 'images/shop/products/id4.png' %}" alt="product-img" />
+							</div>
+							<div class="product-content">
+								<h4><a href="product-single.html">20th Century Boys</a></h4>
+							</div>
+						</div>
 					</div>
-					<div class="product-content">
-						<h4><a href="product-single.html">20th Century Boys</a></h4>
+				
+					<div class="col-sm-4 col-md-4">
+							<div class="product-item">
+								<div class="product-thumb">
+									<img class="img-responsive" src="{% static 'images/shop/products/id5.png' %}" alt="product-img" />
+								</div>
+								<div class="product-content">
+									<h4><a href="product-single.html">Asadora Nº1</a></h4>
+								</div>
+							</div>
+						</div>
+					<div class="col-sm-4 col-md-4">
+						<div class="product-item">
+							<div class="product-thumb">
+								<img class="img-responsive" src="{% static 'images/shop/products/id6.png' %}" alt="product-img" />
+							</div>
+							<div class="product-content">
+								<h4><a href="product-single.html">Astro Boy</a></h4>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
 		
-			<div class="col-sm-4 col-md-4">
-					<div class="product-item">
-						<div class="product-thumb">
-							<img class="img-responsive" src="{% static 'images/shop/products/id5.png' %}" alt="product-img" />
+				<section class="product-category section">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="title text-center">
+									<h2>Últimas novedades</h2>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="category-box category-box-2">
+									<a href="#!">
+										<img src="{% static 'images/shop/products/id19.png' %}" alt="" />
+										<div class="content" style="background-color: #00C5CD;">
+											<h3>Ranma 1/2</h3>
+											<p>Editorial IVREA ARG</p>
+										</div>
+									</a>	
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="category-box category-box-2">
+									<a href="#!">
+										<img src="{% static 'images/shop/products/id24.png' %}" alt="" />
+										<div class="content" style="background-color: #E39FF6;">
+											<h3>Shaman King</h3>
+											<p>Editorial IVREA ARG</p>
+										</div>
+									</a>	
+								</div>
+							</div>
 						</div>
-						<div class="product-content">
-							<h4><a href="product-single.html">Asadora Nº1</a></h4>
-						</div>
 					</div>
-				</div>
-			<div class="col-sm-4 col-md-4">
-				<div class="product-item">
-					<div class="product-thumb">
-						<img class="img-responsive" src="{% static 'images/shop/products/id6.png' %}" alt="product-img" />
-					</div>
-					<div class="product-content">
-						<h4><a href="product-single.html">Astro Boy</a></h4>
-					</div>
-				</div>
+				</section>			
+
 			</div>
 		</div>
-	
-			<section class="product-category section">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="title text-center">
-								<h2>Últimas novedades</h2>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="category-box category-box-2">
-								<a href="#!">
-									<img src="{% static 'images/shop/products/id19.png' %}" alt="" />
-									<div class="content" style="background-color: #00C5CD;">
-										<h3>Ranma 1/2</h3>
-										<p>Editorial IVREA ARG</p>
-									</div>
-								</a>	
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="category-box category-box-2">
-								<a href="#!">
-									<img src="{% static 'images/shop/products/id24.png' %}" alt="" />
-									<div class="content" style="background-color: #E39FF6;">
-										<h3>Shaman King</h3>
-										<p>Editorial IVREA ARG</p>
-									</div>
-								</a>	
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>			
-
-		</div>
-	</div>
-</section>
-
-
+	</section>
+</div>
 </body>
 {% endblock content %}

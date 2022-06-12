@@ -23,7 +23,7 @@ class Item(models.Model):
     imagen = models.ImageField('Imagen de producto', null=True, blank=True)
     stock = models.IntegerField(null=True)
     descripcion = models.CharField(max_length=400, null=True)
-
+    digital = models.BooleanField(default=False, null=True, blank=True)
     def __str__(self):
 	    return self.nombre
 
@@ -36,6 +36,16 @@ class Order(models.Model):
 
 	def __str__(self):
 		return str(self.id)
+	
+	@property
+	def shipping(self):
+		shipping = False
+		orderitems = self.orderitem_set.all()
+		for i in orderitems:
+			if i.item.digital == False:
+				shipping = True
+		return shipping
+
 	
 	@property
 	def get_cart_total(self):
