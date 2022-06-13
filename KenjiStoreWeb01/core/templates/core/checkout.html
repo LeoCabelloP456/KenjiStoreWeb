@@ -163,6 +163,7 @@
     </div>
 </div>
 <script type="text/javascript">
+<<<<<<< HEAD
    var shipping = '{{order.shipping}}'
    var total = '{{order.get_cart_total}}'
 
@@ -176,12 +177,31 @@
 
    
 /*    if (shipping == 'False' && user != 'AnonymousUser'){
+=======
+    var shipping = '{{order.shipping}}'
+    var total = '{{order.get_cart_total}}'
+
+    if (shipping == 'False'){
+        document.getElementById('shipping_info').innerHTML = ''
+    }
+
+    if (user != 'AnonymousUser'){
+ 	   document.getElementById('user-info').innerHTML = ''
+   }
+
+   if (shipping == 'False' && user != 'AnonymousUser'){
+>>>>>>> 1ef5f0487fc1016b4efc1c779a6f2ea155fdc000
 	   //Hide entire form if user is logged in and shipping is false
          document.getElementById('form-wrapper').classList.add("hidden");
          //Show payment if logged in user wants to buy an item that does not require shipping
          document.getElementById('payment-info').classList.remove("hidden");
+<<<<<<< HEAD
    } */ 
    
+=======
+   }
+
+>>>>>>> 1ef5f0487fc1016b4efc1c779a6f2ea155fdc000
     var form = document.getElementById('form')
 		form.addEventListener('submit', function(e){
 	    	e.preventDefault()
@@ -249,6 +269,7 @@
          .then((response) => response.json())
          .then((data) => {
             console.log('Success:', data);
+<<<<<<< HEAD
             alert('Transacción completa');
             
          cart = {}
@@ -257,6 +278,12 @@
          window.location.href = "../index"
 
          })
+=======
+            alert('Transacción completa');  
+            window.location.href = "../index"
+
+            })
+>>>>>>> 1ef5f0487fc1016b4efc1c779a6f2ea155fdc000
 
       }
       

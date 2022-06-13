@@ -3,8 +3,12 @@ var updateBtns = document.getElementsByClassName('update-cart')
 
 for (var i = 0; i < updateBtns.length; i++) {
 	updateBtns[i].addEventListener('click', function(){
+<<<<<<< HEAD
 
 		var itemId = this.dataset.product
+=======
+		var itemId = this.dataset.item
+>>>>>>> 1ef5f0487fc1016b4efc1c779a6f2ea155fdc000
 		var action = this.dataset.action
 		console.log(action)
 		console.log('itemId:', itemId, 'action:', action)
@@ -12,7 +16,11 @@ for (var i = 0; i < updateBtns.length; i++) {
         
         console.log('USER:', user)
         if (user == 'AnonymousUser'){
+<<<<<<< HEAD
 			addCookieItem(itemId, action)                    
+=======
+			addCookieItem(itemtId, action)                    
+>>>>>>> 1ef5f0487fc1016b4efc1c779a6f2ea155fdc000
         }else{
 			console.log('Test')
             updateUserOrder(itemId, action)
