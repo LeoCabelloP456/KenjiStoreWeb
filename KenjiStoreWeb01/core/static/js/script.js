@@ -1,10 +1,3 @@
-/**
- * WEBSITE: https://themefisher.com
- * TWITTER: https://twitter.com/themefisher
- * FACEBOOK: https://www.facebook.com/themefisher
- * GITHUB: https://github.com/themefisher/
- */
-
 (function ($) {
   'use strict';
 
@@ -14,19 +7,6 @@
       $(this).remove();
     });
   });
-
-  
-  // Instagram Feed
-  if (($('#instafeed').length) !== 0) {
-    var accessToken = $('#instafeed').attr('data-accessToken');
-    var userFeed = new Instafeed({
-      get: 'user',
-      resolution: 'low_resolution',
-      accessToken: accessToken,
-      template: '<a href="{{link}}"><img src="{{image}}" alt="instagram-image"></a>'
-    });
-    userFeed.run();
-  }
 
   setTimeout(function () {
     $('.instagram-slider').slick({
@@ -61,23 +41,6 @@
 
   // e-commerce touchspin
   $('input[name=\'product-quantity\']').TouchSpin();
-
-
-  // Video Lightbox
-  $(document).on('click', '[data-toggle="lightbox"]', function (event) {
-    event.preventDefault();
-    $(this).ekkoLightbox();
-  });
-
-
-  // Count Down JS
-  $('#simple-timer').syotimer({
-    year: 2022,
-    month: 5,
-    day: 9,
-    hour: 20,
-    minute: 30
-  });
 
   //Hero Slider
   $('.hero-slider').slick({

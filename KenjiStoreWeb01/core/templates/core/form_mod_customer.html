@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="container">
+    <div class="row">
+        <a class="custom_url" href="/listar_customers">← volver</a>
+        <h1>Modificar un cliente</h1>
+    </div>
+
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <div class="row">
+        <form method="post" action="#" id="formulario">
+            {% csrf_token %}
+            <div class="form-group">
+            {{form.as_table}}
+            </div>
+            <div class="w-100 text-right" style="padding: 20px 0px;">
+                <input type="submit" class="btn btn-small" id="enviar" value="Modificar">
+            </div>
+        </form>
+        {% if message %}
+            <div class="alert alert-success">{{message}}</div>
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock content %}

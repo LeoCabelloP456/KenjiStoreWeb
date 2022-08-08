@@ -4,16 +4,16 @@
 <html lang="es">
 <head>
 
-  <!-- Basic Page Needs
-  ================================================== -->
-  <meta charset="utf-8">
-  <title>KenjiStore | Tu tienda de mangas y cómics</title>
+	<!-- Basic Page Needs
+	================================================== -->
+	<meta charset="utf-8">
+	<title>KenjiStore | Tu tienda de mangas y cómics</title>
 
-  <!-- Mobile Specific Metas
-  ================================================== -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Construction Html5 Template">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+	<!-- Mobile Specific Metas
+	================================================== -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Construction Html5 Template">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
 <script type="text/javascript">
 	var user = '{{request.user}}'
@@ -65,17 +65,13 @@ function getCookie(name) {
 	console.log('Cart:', cart)
 
 </script>
-
-
-  <meta name="author" content="Themefisher">
-  <meta name="generator" content="Themefisher Constra HTML Template v1.0">
   
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/kenji_logo.png' %}" />
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/K (1).png'%}" />
   
   <!-- Themefisher Icon font -->
-  
   <link rel="stylesheet" href="{% static 'plugins/themefisher-font/style.css' %}">
+
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -89,8 +85,22 @@ function getCookie(name) {
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 
+	<style>
+		.custom_url{
+			color: #000;
+			transition: all .2s ease-in-out;
+		}
+		.custom_url:hover{
+			color: rgb(173, 20, 20);
+			font-size: 15px;
+		}
 
+		select{
+			height: 45px !important;
+		}
+	</style>
 </head>
 
 <body id="body">
@@ -100,38 +110,47 @@ function getCookie(name) {
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 col-xs-12 col-sm-4">
-				<!-- <div class="contact-number">
-					<i class="tf-ion-ios-telephone"></i>
-					<span>0129- 12323-123123</span>
-				</div>-->
+				<ul class="text-left">
+					{% if user.is_authenticated %}
+						<span>Hola, {{request.user}}</span> | <a class="custom_url" href="/mis_compras">Mis compras</a> | <a class="custom_url" href="../logout">Salir</a>
+					{% else %}
+						<a href="/login">Iniciar sesión</a>
+					{% endif %}
+				</ul>
 			</div>
 			<div class="col-md-4 col-xs-12 col-sm-4">
 				<!-- Site Logo -->
 				<div class="logo text-center">
-					<a href="#!">
+					<a href="/index">
 						<img src="{% static 'images/kenji_logo2.jpeg'%}" alt="" style="height:2cm;">
 					</a>
 				</div>
 			</div>
 			<div class="col-md-4 col-xs-12 col-sm-4">
 				<!-- Cart -->
-				<ul class="top-menu text-right list-inline">
-
+				<ul class="text-right list-inline">
+					{% if user.is_superuser %}
+						<li><a href="/mantenedores" class="btn btn-small">Reportes y modificar información</a></li>
+						
+					{% endif %}
 						<li class="dropdown cart-nav dropdown-slide">
 							
-								<a href="../cart">
+								<a href="/cart">
 									<img id="cart-icon" src="{% static 'images/cart.png' %}">
 								</a>
-								<p id="cart-total">{{cartItems}}</p>
+								<span id="cart-total">{{cartItems}}</span>
 								<div class="dropdown-menu cart-dropdown">
 									<!-- Cart Item -->
 									<!--Saqué todo el código que había aquí, porque eran productos comprados del template original-->
 
 									<ul class="text-center cart-buttons">
-										<li><a href="../cart" class="btn btn-small">Ver Carrito</a></li>
-										<li><a href="../checkout" class="btn btn-small btn-solid-border">Confirmar</a></li>
+										<li><a href="/cart" class="btn btn-small">Ver Carrito</a></li>
+										<li><a href="/checkout" class="btn btn-small btn-solid-border">Confirmar</a></li>
+										
 									</ul>
+									
 								</div>
+								
 							
 
 						</li><!-- / Cart -->
@@ -147,6 +166,8 @@ function getCookie(name) {
 							</ul>
 						</li>-->
 				</ul>
+				
+				
 			</div>
 		</div>
 	</div>
@@ -159,7 +180,6 @@ function getCookie(name) {
 		<div class="container">
 			<div class="navbar-header">
 				<h2 class="menu-title">Menú principal</h2>
-				<!-- Boton hamburguesa solo aparece cuando esta responsive y no esta funcionando -->
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"				
 					aria-expanded="false" aria-controls="navbar">
 					<span class="sr-only">Boton Hamburguesa</span>
@@ -176,13 +196,13 @@ function getCookie(name) {
 
 					<!-- Home -->
 					<li class="dropdown ">
-						<a class="nav-link" href="../index">Principal</a>
+						<a class="nav-link" href="/index">Principal</a>
 					</li><!-- / Home -->
 
 
 					<!-- Comprar -->
 					<li class="dropdown ">
-						<a class="nav-link" href="../catalogo">Comprar</a>
+						<a class="nav-link" href="/catalogo">Catálogo</a>
 					</li><!-- / Comprar -->
 					
 
@@ -199,10 +219,8 @@ function getCookie(name) {
 									<ul>
 										<li class="dropdown-header">Introducción</li>
 										<li role="separator" class="divider"></li>
-										<li><a href="contact.html">Contáctanos</a></li>
-										<li><a href="about.html">Sobre nosotros</a></li>
-										<li><a href="coming-soon.html">Próximamente...</a></li>
-										<li><a href="faq.html">FAQ</a></li>
+										<li><a href="/aboutus">Sobre nosotros</a></li>
+										<li><a href="/faq">FAQ</a></li>
 									</ul>
 								</div>
 
@@ -211,8 +229,8 @@ function getCookie(name) {
 									<ul>
 										<li class="dropdown-header">Dashboard</li>
 										<li role="separator" class="divider"></li>
-										<li><a href="order.html">Órdenes</a></li>
-										<li><a href="address.html">Dirección</a></li>
+										<li><a href="../mis_compras">Mis compras</a></li>
+
 									</ul>
 								</div>
 
@@ -221,9 +239,8 @@ function getCookie(name) {
 									<ul>
 										<li class="dropdown-header">Utilidades</li>
 										<li role="separator" class="divider"></li>
-										<li><a href="../login">Página Login</a></li>
-										<li><a href="../registro">Página de Registro</a></li>
-										<li><a href="#">Olvidé mi Password</a></li>
+										<li><a href="/login">Página Login</a></li>
+										<li><a href="/registro">Página de Registro</a></li>
 									</ul>
 								</div>
 
@@ -242,9 +259,7 @@ function getCookie(name) {
 			</div>
 			<!--/.navbar-collapse -->
 
-			<!-- Para mostrar el nombre de usuario de hacer logout *Considerar cambiarlo de ubicación -->
-			<span>Hola, {{request.user}}      </span>
-			<a href="../logout">- Logout</a>
+			
 		</div><!-- / .container -->
 	</nav>
 </section>
@@ -258,69 +273,43 @@ function getCookie(name) {
 {% endblock content %}
 </div>  
 
-<!--
-Start Call To Action
-==================================== -->
-<section class="call-to-action bg-gray section">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 text-center">
-				<div class="title">
-					<h2>SUSCRÍBETE A NUESTRO NEWSLETTER</h2>
-					<p>Si quieres enterarte de las novedades, <br> avances y nuevas temporadas, ingresa tu correo aquí.</p>
-				</div>
-				<div class="col-lg-6 col-md-offset-3">
-				    <div class="input-group subscription-form">
-				      <input type="text" class="form-control" placeholder="Entra tu Email aquí">
-				      <span class="input-group-btn">
-				        <button class="btn btn-main" type="button">Suscríbete Ahora!</button>
-				      </span>
-				    </div><!-- /input-group -->
-			  </div><!-- /.col-lg-6 -->
 
-			</div>
-		</div> 		<!-- End row -->
-	</div>   	<!-- End container -->
-</section>   <!-- End section -->
 
 
 <footer class="footer section text-center">
 	<div class="container">
 		<div class="row">
+			<!--<div><img class="img-responsive" src="{% static 'images/kenji_banner.jpg' %}"/></div-->
 			<div class="col-md-12">
 				<ul class="social-media">
 					<li>
-						<a href="https://www.facebook.com/themefisher">
+						<a href="#">
 							<i class="tf-ion-social-facebook"></i>
 						</a>
 					</li>
 					<li>
-						<a href="https://www.instagram.com/themefisher">
+						<a href="#">
 							<i class="tf-ion-social-instagram"></i>
 						</a>
 					</li>
 					<li>
-						<a href="https://www.twitter.com/themefisher">
+						<a href="#">
 							<i class="tf-ion-social-twitter"></i>
 						</a>
 					</li>
 					<li>
-						<a href="https://www.pinterest.com/themefisher/">
+						<a href="#">
 							<i class="tf-ion-social-pinterest"></i>
 						</a>
 					</li>
 				</ul>
 				<ul class="footer-menu text-uppercase">
 					<li>
-						<a href="contact.html">CONTACTO</a>
+						<a href="../aboutus">SOBRE NOSOTROS</a>
 					</li>
 					<li>
-						<a href="../catalogo">COMPRAR</a>
+						<a href="../catalogo">CATÁLOGO</a>
 					</li>
-					<li>
-						<a href="pricing.html">Precio</a>
-					</li>
-
 				</ul>
 				<p class="copyright-text">Copyright &copy;2022, Designed &amp; Developed by <a href=" ">INQODE</a></p>
 			</div>
@@ -356,7 +345,12 @@ Start Call To Action
     <script src="{% static 'js/script.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
 
-  </body>
-  </html>
+	<!-- datatable -->
+	<script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 
-  
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+

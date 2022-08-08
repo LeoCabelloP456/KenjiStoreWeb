@@ -1,0 +1,34 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="container">
+    <div class="row">
+        <a class="custom_url" href="/listar_customers">← volver</a>
+        <h1>Crear un cliente</h1>
+    </div>
+
+
+    <div class="row">
+
+        
+        <form method="post" action="#" id="formulario">
+            {% csrf_token %}
+            <div class="form-group">
+            {{form.as_table}}
+            </div>
+            <div class="w-100 text-right" style="padding: 20px 0px">
+                <input type="submit" class="btn btn-small" id="enviar" value="Enviar">
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('id_password1').className = "form-control";
+    document.getElementById('id_password2').className = "form-control";
+</script>
+
+{% endblock content %}

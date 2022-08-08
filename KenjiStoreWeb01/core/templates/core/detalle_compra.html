@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<body id="body">
+
+    <div class="page-wrapper">
+        <div class="cart shopping">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="block">
+                            <div class="product-list">
+                                <a class="custom_url" href="/mis_compras">← volver</a>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="">Nombre</th>
+                                                <th class="">Precio</th>
+                                                <th class="">Cantidad</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for item in boleta_item %}
+                                            <tr class="">                                           
+                                                <td class="">                                                
+                                                    <div class="product-info">                                                   
+                                                        <img width="80" src="{%static 'images/shop/products/'%}{{item.item.imagen}}">
+                                                        <a href="../index">{{item.item}}</a>
+                                                    </div>
+                                                </td>
+                                                <td class="">${{item.item.precio}}</td>
+                                                <td class="">{{item.cantidad}}</td>
+                                            </tr>
+                                            <br>
+                                        {% empty %}
+                                            <tr>
+                                                <td colspan="4" class="text-center"><h3>error... no hay productos comprados?</h3></td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+{% endblock content %}

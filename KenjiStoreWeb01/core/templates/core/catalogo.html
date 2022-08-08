@@ -9,34 +9,38 @@
     <div class="row">
         {% for item in items %}
 
-        <div class="col-md-3">
+        <div class="col-sm-3">
 
             <div class="product-item">
                 <div class="product-thumb">
-                    <img  width="50" class="product-info" src="{{item.imagen.url}}" alt="product-image">
+                    <img  width="50" class="product-info" src=" {%static 'images/shop/products/'%}{{item.imagen}}" alt="product-image">
                     <div class="preview-meta">
                         <ul>
                             <li>
-                                <button data-product="{{item.id}}" data-action="add" class="btn btn-outside-secondary add-btn update-cart">Añadir al carrito</button>
+                                {% if item.stock <= 0 %}
+                                    <h4 class="text-danger"><strong>FUERA DE STOCK</strong></h4>
+                                {% else %}
+                                    <button type="button" data-item="{{item.id}}" data-item_stock="{{item.stock}}" data-action="add" class="btn btn-outside-secondary add-btn update-cart">Añadir al carrito</button>
+                                {% endif %}
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="product-content">
+                <div class="card-title">
                     <h4><strong><a href="#">{{item.nombre}}</a></strong></h4>
-                    <p class="price"> ${{item.precio}}</p>
+                    <p class="price"><strong>Precio $</strong>{{item.precio}}</p>
                 </div>
-                <div class="product-content">
+                <div class="card-title">
+                    <h5><strong>Disponibles:</strong> {{item.stock}}</h5>
+                </div>
+                <div class="card-title">
+                    <h5><strong>Autor:</strong> {{item.autor}}</h5>
+                </div>
+                <div class="card-title">
+                    <h5><strong>Editorial:</strong> {{item.editorial}}</h5>
+                </div>
+                <div class="card-text">
                     <h5>{{item.descripcion}}</h5>
-                </div>
-                <div class="product-content">
-                    <h5>Autor: {{item.autor}}</h5>
-                </div>
-                <div class="product-content">
-                    <h5>Editorial: {{item.editorial}}</h5>
-                </div>
-                <div class="product-content">
-                    <h5>Disponibles: {{item.stock}}</h5>
                 </div>
             </div>
 

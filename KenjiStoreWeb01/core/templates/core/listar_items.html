@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+    <a class="custom_url" href="/mantenedores">← volver</a>
+    <h1>Lista productos</h1>
+    </div>
+    <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Editorial</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Modificar</th>
+            <th scope="col">Eliminar</th>
+
+        </tr>
+    </thead>
+        <tbody>
+        {% for item in items %}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.nombre}}</td>            
+                <td>{{item.editorial}}</td>
+                <td>{{item.precio}}</td>
+                <td>{{item.stock}}</td>
+                <td><a href="../form_mod_item/{{item.id}}" class="btn btn-sm" style="background-color: black; color: white;">Modificar</a></td>
+                <td><a href="../form_del_item/{{item.id}}" class="btn btn-danger btn-sm">Eliminar</a></td>
+            </tr>
+        {% endfor %}
+
+    </tbody>
+    </table>
+    <a href="../form_items" class="btn btn-main font-weight-bold">Nuevo producto</a>
+    <br><br>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="container">
+    <div class="row">
+        <h1>Crear un despacho</h1>
+    </div>
+
+
+    <div class="row">
+
+        
+        <form method="post" action="#" id="formulario">
+            {% csrf_token %}
+            <div class="form-group">
+            {{form.as_table}}
+            </div>
+            <input type="submit" class="btn btn-sm" style="background-color: black; color: white;" id="enviar" value="Enviar">
+            <input type="reset" class="btn btn-sm" style="background-color: black; color: white;" id="limpiar" value="Limpiar">
+            <div id="error" class="alert alert-danger" role="alert"></div>
+        </form>
+        <div class="alert alert-success" role="alert">
+            {{mensaje}}
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

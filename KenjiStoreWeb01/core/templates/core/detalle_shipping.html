@@ -1,0 +1,59 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<body id="body">
+
+    <div class="page-wrapper">
+        <div class="cart shopping">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="block">
+                            <div class="product-list">
+                                <a href="/listar_shippings"> ← Volver</a>
+
+                                <h1>Detalle despacho</h1>
+                                <hr>
+                                <p>- País: <strong>{{shipping.country}}</strong></p>
+                                <p>- Ciudad: <strong>{{shipping.city}}</strong></p>
+                                <p>- Región: <strong>{{shipping.state}}</strong></p>
+                                <p>- Comuna: <strong>{{shipping.comuna}}</strong></p>
+                                <p>- Dirección: <strong>{{shipping.address}}</strong></p>
+                                <p>- Número de calle: <strong>{{shipping.street_number}}</strong></p>
+                                <p>- Número de depto: <strong>{{shipping.block_number}}</strong></p>
+                                <p>- Código postal: <strong>{{shipping.zipcode}}</strong></p>
+                                <p>- Estado del despacho: 
+                                    <strong>
+                                        {% if shipping.estado_despacho == 1 %}
+                                            <span style="color: rgb(189, 184, 184)">en proceso</span>
+                                        {% elif shipping.estado_despacho == 2 %}
+                                            <span style="color: orange">en camino</span>
+                                        {% elif shipping.estado_despacho == 3 %}
+                                            <span style="color: green;">entregado</span>
+                                        {% else %}
+                                            no definido
+                                        {% endif %}
+                                    </strong>
+                                </p>
+                                <p>- Número de teléfono: <strong>{{shipping.phone_number}}</strong></p>
+                                <p>- Fecha de creación: <strong>{{shipping.date_added}}</strong></p>
+                                
+                                <h1>Usuario</h1>
+                                <hr>
+                                <p>- Nombre de usuario: <strong>{{user.username}}</strong></p>
+                                <p>- Nombre completo: <strong>{{user.first_name}} {{user.last_name}}</strong></p>
+                                <p>- Correo electronico: <strong>{{user.email}}</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+{% endblock content %}

@@ -4,8 +4,6 @@
 
 <head>
 
-  <!-- Basic Page Needs
-  ================================================== -->
   <meta charset="utf-8">
   <title>KenjiStore</title>
 
@@ -14,11 +12,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="Construction Html5 Template">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="author" content="Themefisher">
-  <meta name="generator" content="Themefisher Constra HTML Template v1.0">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.png' %}" />
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/k.png' %}" />
 
   <!-- Themefisher Icon font -->
   <link rel="stylesheet" href="{% static 'plugins/themefisher-font/style.css' %}">
@@ -63,10 +59,6 @@
               <div class="form-group">
                 {{form.last_name}}
               </div>
-              <!--<div class="form-group">
-                <label for="rut">Rut</label>
-              <input type="text" class="form-control" id="rut"><br>
-              </div>-->
               <div class="form-group">
                 {{form.email}}
               </div>
@@ -93,7 +85,7 @@
     </div>
     <script>
       /* Al no fijar los placeholders en el archivo forms.py se hace en esta página usando Vanilla Javascript
-      //Se comienza indezando uno a la vez, ya que CSRF_token es considerado un campo input 
+      //Se comienza indexando uno a la vez, ya que CSRF_token es considerado un campo input 
       */
       //Query de todos los campos input
       var form_fields = document.getElementsByTagName('input')
@@ -101,13 +93,12 @@
       form_fields[2].placeholder = 'Tu nombre';
       form_fields[3].placeholder = 'Tu apellido';
       form_fields[4].placeholder = 'email@dominio.com';
-      form_fields[5].placeholder = 'Ingresa tu password';
-      form_fields[6].placeholder = 'Reingresa tu password';
+      form_fields[5].placeholder = 'Ingresa tu Contraseña';
+      form_fields[6].placeholder = 'Reingresa tu Contraseña';
+      form_fields[5].className += 'form-control'
+      form_fields[6].className += 'form-control'
 
 
-      for (var field in form_fields) {
-        form_fields[field].className += 'form-control'
-      }
     </script>
   </section>
 

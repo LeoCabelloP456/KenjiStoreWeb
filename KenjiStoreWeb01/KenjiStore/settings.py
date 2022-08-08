@@ -116,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Santiago'
 
 USE_I18N = True
 
@@ -126,7 +126,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'core/static')
@@ -142,3 +142,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/shop/products')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SITE_ID = 1
+
+# Custom user model
+AUTH_USER_MODEL = 'core.Customer'
+
+LANGUAGE_CODE = 'es'
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '8bf7f4ec7f7197'
+EMAIL_HOST_PASSWORD = '3f7ca9c3acea7f'
+EMAIL_PORT = '2525'

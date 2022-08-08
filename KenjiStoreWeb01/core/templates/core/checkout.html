@@ -2,294 +2,219 @@
 {% load static %}
 {% block content %}
 <section class="page-header">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="content">
-					<h1 class="page-name">Datos de envío</h1>
-					<ol class="breadcrumb">
-						<li><a href="../index">Principal</a></li>
-						<li class="active">Datos de envío</li>
-					</ol>
-				</div>
-			</div>
-		</div>
-	</div>
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="content">
+               <h1 class="page-name">Datos de envío</h1>
+               <ol class="breadcrumb">
+                  <li><a href="../index">Principal</a></li>
+                  <li class="active">Datos de envío</li>
+               </ol>
+            </div>
+         </div>
+      </div>
+   </div>
 </section>
 <div class="page-wrapper">
-    <div class="checkout shopping">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="block billing-details" id="form-wraper">
-                        <h4 class="widget-title">Datos personales</h4>
-                        <form class="checkout-form">
-                            <form id="form">
-                              <div id="user-info">
-                                <div class="checkout-country-code clearfix">
-                                <div class="form-group">
-                                    <label for="full_name">Nombre completo</label>
-                                    <input type="text" class="form-control" id="full_name" placeholder="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="user_email">Email</label>
-                                    <input type="email" class="form-control" id="full_name" placeholder="">
-                                </div>
-                                </div>
+   <div class="checkout shopping">
+      <div class="container">
+         <div class="row" style="padding: 15px;">
+            <div class="col-md-8" style="box-shadow: 1px 0px 12px rgba(0, 0, 0, 0.157); display: flex">
+               <div class="block billing-details" id="form-wraper">
+                  <h4 class="widget-title">Datos personales</h4>
+                  <form id="info-form" class="checkout-form">
+                        <div id="user-info">
+                           <div class="checkout-country-code clearfix">
+                              <div class="form-group">
+                                 <label for="full_name">Nombre completo</label>
+                                 <input required type="text" class="form-control" id="full_name" placeholder="">
                               </div>
-                            </form>
-                                <br>
-                           <h4 class="widget-title">Direccion de Entrega</h4>
-                              <form class="checkout-form">
-                                <div id = "shipping_info">
-                                    <div class="form-group">
-                                        <label for="address">Dirección</label>
-                                        <input type="text" class="form-control" id="address" placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                       <label for="country">País</label>
-                                       <input type="text" class="form-control" id="country" placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                       <label for="state">Región</label>
-                                       <input type="text" class="form-control" id="state" placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                       <label for="city">Ciudad</label>
-                                       <input type="text" class="form-control" id="city" placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                       <label for="comuna">Comuna</label>
-                                       <input type="text" class="form-control" id="comuna" placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                       <label for="street_number">Número de calle</label>
-                                       <input type="text" class="form-control" id="street_number" placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="zipcode">Código Postal</label>
-                                        <input type="text" class="form-control" id="zipcode">
-                                    </div>
-                                    <div class="form-group">
-                                          <label for="block_number">Número de block</label>
-                                          <input type="text" class="form-control" id="block_number">
-                                    </div>                                  
-                                    <div class="form-group">
-                                        <label for="phone_number">Número de teléfono</label>
-                                        <input type="text" class="form-control" id="phone_number" placeholder="">
-                                    </div>
-                                </div>
-                            </form>
-
-                           <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continuar">
-                        </form>
+                              <div class="form-group">
+                                 <label for="user_email">Email</label>
+                                 <input required type="email" class="form-control" id="email" placeholder="">
+                              </div>
+                           </div>
+                        </div>
+                     <br>
+                     <h4 class="widget-title">Direccion de Entrega</h4>
+                        <div id="shipping_info">
+                           <div class="form-group">
+                              <label for="address">Dirección</label>
+                              <input required type="text" class="form-control" id="address" placeholder="">
+                           </div>
+                           <div class="row">
+                              <div class="col-md-6 col-lg-4">
+                                 <div class="form-group">
+                                    <label for="state">Región</label>
+                                    <input required type="text" class="form-control" id="state" placeholder="">
+                                 </div>
+                              </div>
+                              <div class="col-md-6 col-lg-4">
+                                 <div class="form-group">
+                                    <label for="country">País</label>
+                                    <input required type="text" class="form-control" id="country" placeholder="">
+                                 </div>
+                              </div>
+                              <div class="col-md-6 col-lg-4">
+                                 <div class="form-group">
+                                    <label for="city">Ciudad</label>
+                                    <input required type="text" class="form-control" id="city" placeholder="">
+                                 </div>
+                              </div>
+                              <div class="col-md-6 col-lg-12">
+                                 <div class="form-group">
+                                    <label for="comuna">Comuna</label>
+                                    <input required type="text" class="form-control" id="comuna" placeholder="">
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-md-6">
+                                 <div class="form-group">
+                                    <label for="street_number">Número calle</label>
+                                    <input required type="text" class="form-control" id="street_number" placeholder="">
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="form-group">
+                                    <label for="zipcode">Código Postal</label>
+                                    <input required type="text" class="form-control" id="zipcode">
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <label for="block_number">Número de block</label>
+                              <input required type="text" class="form-control" id="block_number">
+                           </div>
+                           <div class="form-group">
+                              <label for="phone_number">Número de teléfono</label>
+                              <input required type="text" class="form-control" id="phone_number" placeholder="">
+                           </div>
+                        </div>
+                        <button class="btn btn-main pull-right">Continuar</button>
+                  </form>
+               </div>
+            </div>
+            <div class="col-md-4">
+               <h4 class="widget-title">Resumen del pedido</h4>
+               <div class="product-checkout-details" style="max-height: 400px; overflow-y: auto; overflow-x: hidden">
+                  <div class="block">
+                     {% for item in items %}
+                     <div class="media product-card">
+                        <a class="pull-left" href="#">
+                           <div style="flex:2"><img class="row-image" width="80" src="{%static 'images/shop/products/'%}{{item.item.imagen}}"></div>
+                        </a>
+                        <div class="media-body">
+                           <h4 class="media-heading"><a href="#">Nombre del producto:
+                                 {{item.item.nombre}}</a></h4>
+                           <p class="quantity">Cantidad: {{item.quantity}}</p>
+                           <p class="price">Precio: ${{item.item.precio}}</p>
+                           <span class="remove">Quitar</span>
+                        </div>
                      </div>
-                    <br>
-                    <div class="box-element hidden" id="payment-info">
-                        <small style="color: black;">Opciones Paypal</small>
-                    </div>
-                    <button id="make-payment">Realizar Pago</button>
+                     <ul class="summary-prices">
+                        <li>
+                           <span>Subtotal:</span>
+                           <span class="price">${{item.item.precio}}</span>
+                        </li>
+                     </ul>
+                     {% endfor %}
+
                   </div>
-
-                                    <!----  <div class="block">
-                                          <h4 class="widget-title">Método de Pago</h4>
-                                          <p>Detalles de tarjeta de Crédito (Pago seguro)</p>
-                                          <div class="checkout-product-details">
-                                             <div class="payment">
-                                                <div class="card-details">
-                                                   <form  class="checkout-form">
-                                                      <div class="form-group">
-                                                         <label for="card-number">Número de tarjeta <span class="required">*</span></label>
-                                                         <input  id="card-number" class="form-control"   type="tel" placeholder="•••• •••• •••• ••••">
-                                                      </div>
-                                                      <div class="form-group half-width padding-right">
-                                                         <label for="card-expiry">Expiración (MM/AA) <span class="required">*</span></label>
-                                                         <input id="card-expiry" class="form-control" type="tel" placeholder="MM / YY">
-                                                      </div>
-                                                      <div class="form-group half-width padding-left">
-                                                         <label for="card-cvc">Código de Tarjeta <span class="required">*</span></label>
-                                                         <input id="card-cvc" class="form-control"  type="tel" maxlength="4" placeholder="CVC" >
-                                                      </div>
-                                                      <a href="confirmation.html" class="btn btn-main mt-20">Realizar Pedido</a >
-                                                   </form>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 -->
-
-                 
-                
-                <div class="col-md-4">
-                    <div class="product-checkout-details">
-                       <div class="block">
-                          <h4 class="widget-title">Resumen del pedido</h4>
-                          {% for item in items %}
-                          <div class="media product-card">
-                             <a class="pull-left" href="product-single.html">
-                                <div style="flex:2"><img class="row-image" width="80" src="{{item.item.imagen.url}}">
-                             </a>
-                             <div class="media-body">
-                                <h4 class="media-heading"><a href="product-single.html">Nombre del producto: {{item.item.nombre}}</a></h4>
-                                <p class="quantity">Cantidad: {{item.quantity}}</p>
-                                <p class="price">Precio: ${{item.item.precio}}</p>
-                                <span class="remove">Quitar</span>
-                             </div>
-                          </div>
-                          <ul class="summary-prices">
-                             <li>
-                                <span>Subtotal:</span>
-                                <span class="price">${{item.item.precio}}</span>
-                             </li>
-                          </ul>
-                          {% endfor %}
-
-                          <div class="summary-total">
-                             <span>Total de Items:   {{order.get_cart_items}}</span>
-                             <span>Total:   ${{order.get_cart_total}}</span>
-                          </div>
-                       </div>
-                    </div>
-                 </div>
-               </div>  
-              </div>
+               </div>
+               <div class="summary-total">
+                  <h4>Total de Items: <strong>{{order.get_cart_items}}</strong></h2>
+                  <h4>Total: <strong>${{order.get_cart_total}}</strong></h4>
+               </div>
+               <div class="box-element" id="payment-info" style="padding-top: 10px;">
+                  <div id="paypal-button-container" class="hidden"></div>
+                  <button id="fake_button" style="cursor: not-allowed;" class="btn btn-main pull-right" type="button" disabled>Pagar</button>
+               </div>
+            </div>
          </div>
-           </div>
-        </div>
-     </div>
-
-
-    </div>
+      </div>
+   </div>
 </div>
-<script type="text/javascript">
-<<<<<<< HEAD
-   var shipping = '{{order.shipping}}'
+<script
+   src="https://www.paypal.com/sdk/js?client-id=Af_VcG9NaDcCNIz3v2OKmwLvv_y6-thwoyGr8rLHwDDzt7oN5BiVmi5Ox9Ywdi-KuwyN1zp04fElleGo&locale=es_CL">
+</script>
+<!--decía currency=USD, pero lo cambié por CLP (pesos chilenos)-->
+<!--lo que aparece a continuación del client-id es el id que me generó sandbox a mi cliente-->
+
+<!-- paso 1 -->
+<script>
+   const form = document.getElementById('info-form');
+   form.onsubmit = function(event) {
+      event.preventDefault();
+      const paypalbutton = document.getElementById('paypal-button-container');
+      paypalbutton.classList.remove('hidden');
+      const fakeButton = document.getElementById("fake_button");
+      fakeButton.classList.add('hidden');
+   };
+</script>
+<!-- paypal -->
+<script>
    var total = '{{order.get_cart_total}}'
+   var order = '{{order.id}}'
+   // Render del botón de PayPal  hacia el #paypal-button-container. 
+   paypal.Buttons({
+      style: {
+         color: 'blue',
+         shape: 'rect',
 
-/*    if (shipping != 'False'){
-        document.getElementById('shipping_info').innerHTML = ''
-   }
+      },
+      // Configurar la transacción
+      createOrder: function (data, actions) {
+         return actions.order.create({
+            purchase_units: [{
+               amount: {
+                  value: total
+               }
+            }]
+         });
+      },
 
-   if (user != 'AnonymousUser'){
- 	   document.getElementById('user-info').innerHTML = ''
-   }
+      // Finalizar la transacción
+      onApprove: function (data, actions) {
+         return actions.order.capture().then(function (orderData) {
+            // El usuario aprobó la transacción
+            var url = '/comprar_orden/'
 
-   
-/*    if (shipping == 'False' && user != 'AnonymousUser'){
-=======
-    var shipping = '{{order.shipping}}'
-    var total = '{{order.get_cart_total}}'
-
-    if (shipping == 'False'){
-        document.getElementById('shipping_info').innerHTML = ''
-    }
-
-    if (user != 'AnonymousUser'){
- 	   document.getElementById('user-info').innerHTML = ''
-   }
-
-   if (shipping == 'False' && user != 'AnonymousUser'){
->>>>>>> 1ef5f0487fc1016b4efc1c779a6f2ea155fdc000
-	   //Hide entire form if user is logged in and shipping is false
-         document.getElementById('form-wrapper').classList.add("hidden");
-         //Show payment if logged in user wants to buy an item that does not require shipping
-         document.getElementById('payment-info').classList.remove("hidden");
-<<<<<<< HEAD
-   } */ 
-   
-=======
-   }
-
->>>>>>> 1ef5f0487fc1016b4efc1c779a6f2ea155fdc000
-    var form = document.getElementById('form')
-		form.addEventListener('submit', function(e){
-	    	e.preventDefault()
-	    	console.log('Formulario Enviado...')
-	    	document.getElementById('form-button').classList.add("hidden");
-	    	document.getElementById('payment-info').classList.remove("hidden");
-	    })
-      
-      document.getElementById('make-payment').addEventListener('click', function(e){
-         submitFormData()
-      })
-      
-      function submitFormData(){
-         console.log('Se clickeó el botón de pago')
-
-         var userFormData = {
-            'name': null, 
-            'email': null,
-            'total': total,
-         }
-
-         var shippingInfo = {
-            'address': null, 
-            'country': null,
-            'state': null,
-            'city': null, 
-            'comuna': null,
-            'street_number': null,
-            'zipcode': null, 
-            'block_number': null,
-            'phone_number': null,
-         }
-
-         if (shipping != 'False'){
-            shippingInfo.address = form.address.value
-            shippingInfo.country = form.country.value
-            shippingInfo.state = form.state.value
-            shippingInfo.city = form.city.value
-            shippingInfo.comuna = form.comuna.value
-            shippingInfo.street_number = form.street_number.value
-            shippingInfo.zipcode = form.zipcode.value
-            shippingInfo.block_number = form.block_number.value
-            shippingInfo.phone_number = form.phone_number.value
-         }
-
-         if (user == 'AnonymousUser'){
-            userFormData.name = form.name.value
-            userFormData.email = form.email.value
-         }
-
-         console.log('Shipping Info:', shippingInfo)
-         console.log('User Info:', userFormData)
-      
-         var url = "/process_order/"
-         fetch(url, {
-            method:'POST',
-            headers:{
-               'Content-Type':'applicaiton/json',
-               'X-CSRFToken':csrftoken,
-            }, 
-            body:JSON.stringify({'form':userFormData, 'shipping':shippingInfo}),
-            
-         })
-
-         .then((response) => response.json())
-         .then((data) => {
-            console.log('Success:', data);
-<<<<<<< HEAD
-            alert('Transacción completa');
-            
-         cart = {}
-         document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"   
-
-         window.location.href = "../index"
-
-         })
-=======
-            alert('Transacción completa');  
-            window.location.href = "../index"
-
+            const email = document.getElementById('email').value
+            fetch(url, {
+               method:'POST',
+               headers:{
+                  'Content-Type':'application/json',
+               }, 
+               body: JSON.stringify({
+                  'order_id': order,
+                  'total': total,
+                  'tipo_pago': 2,
+                  'email': email,
+                  'shippingdata': {
+                     'nombre': document.getElementById('full_name').value,
+                     'direccion': document.getElementById('address').value,
+                     'region': document.getElementById('state').value,
+                     'pais': document.getElementById('country').value,
+                     'ciudad': document.getElementById('city').value,
+                     'comuna': document.getElementById('comuna').value,
+                     'numero_calle': document.getElementById('street_number').value,
+                     'codigo_postal': document.getElementById('zipcode').value,
+                     'numero_block': document.getElementById('block_number').value,
+                     'numero_telefono': document.getElementById('phone_number').value,
+                  }
+               })
             })
->>>>>>> 1ef5f0487fc1016b4efc1c779a6f2ea155fdc000
-
+            .then((data) => {
+               document.cookie = "cart=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+               location.href = '/compra_realizada/'
+            });
+         }).catch(function (err) {
+            console.log("Ha ocurrido un error en la compra, por favor intente nuevamente");
+            console.log(err);
+         });
       }
-      
+   }).render('#paypal-button-container');
 </script>
 {% endblock content %}
-
-
-
-

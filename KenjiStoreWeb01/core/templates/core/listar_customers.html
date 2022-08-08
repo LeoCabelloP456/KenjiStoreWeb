@@ -1,0 +1,47 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <a class="custom_url" href="/mantenedores">← volver</a>
+        <h1>Lista clientes</h1>
+    </div>
+    <div class="w-100 text-right" style="padding-bottom: 15px;">
+        <a href="../form_customers" class="btn btn-small">Crear usuari@ +</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre de usuario</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Email</th>
+                <th scope="col">Modificar</th>
+                <th scope="col">Eliminar</th>
+            </tr>
+        </thead>
+            <tbody>
+            {% for cus in customers %}
+                <tr>
+                    <td>{{cus.username}}</td>
+                    <td>{{cus.first_name}} {{cus.last_name}}</td>            
+                    <td>{{cus.email}}</td>
+                    <td><a href="/form_mod_customer/{{cus.id}}" class="btn btn-sm" style="background-color: black; color: white;">Modificar</a></td>
+                    <td><a href="/form_del_customer/{{cus.id}}" class="btn btn-danger btn-sm">Eliminar</a></td>
+                </tr>
+            {% endfor %}
+    
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+
+  

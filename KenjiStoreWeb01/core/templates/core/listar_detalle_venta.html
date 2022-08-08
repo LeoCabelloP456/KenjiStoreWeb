@@ -1,0 +1,75 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<body id="body">
+
+    <div class="page-wrapper">
+        <div class="cart shopping">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a class="custom_url" href="/listar_ventas">← volver</a>
+                        <h1>Detalle Venta</h1>
+                        <hr>
+                    </div>
+                    <h3>Usuari@</h3>
+                    <hr>
+                    <div class="col-md-12 col-md-offset-2">
+                        {% if user is None %}
+                        <p>Correo: <strong>{{ email }}</strong></p>
+                        {% else %}
+                        <p>Usuari@: <strong>{{ user.username }}</strong></p>
+                        <p>Nombres: <strong>{{ user.fist_name }} {{user.last_name }}</strong></p>
+                        <p>Correo: <strong>{{ user.email }}</strong></p>
+                        {% endif %}
+                    </div>
+
+                    <div class="col-md-12">
+                        <h3>Artículos</h3>
+                        <hr>
+                    </div>
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="block">
+                            <div class="product-list">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="">Nombre</th>
+                                                <th class="">Precio</th>
+                                                <th class="">Cantidad</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for item in boleta_item %}
+                                            <tr class="">                                           
+                                                <td class="">                                                
+                                                    <div class="product-info">                                                   
+                                                        <img width="80" src="{%static 'images/shop/products/'%}{{item.item.imagen}}">
+                                                        <a href="../index">{{item.item}}</a>
+                                                    </div>
+                                                </td>
+                                                <td class="">${{item.item.precio}}</td>
+                                                <td class="">{{item.cantidad}}</td>
+                                            </tr>
+                                            <br>
+                                        {% empty %}
+                                            <tr>
+                                                <td colspan="4" class="text-center"><h3>error... no hay productos comprados?</h3></td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+{% endblock content %}

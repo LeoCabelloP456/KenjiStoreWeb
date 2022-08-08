@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+    <h1>Información del sistema</h1>
+    </div>
+    <br><br>
+    <div class="table-responsive">
+
+        <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Productos</th>
+                <th scope="col">Clientes</th>
+                <th scope="col">Despachos</th>
+                <th scope="col">Ventas</th>
+
+            </tr>
+        </thead>
+            <tbody>
+                <tr>
+                    <td><a href="../listar_items" class="btn btn-sm" style="background-color: black; color: white;">Ver y modificar productos</td>
+                    <td><a href="../listar_customers" class="btn btn-sm" style="background-color: black; color: white;">Modificar usuarios</td>       
+                    <td><a href="../listar_shippings" class="btn btn-sm" style="background-color: black; color: white;">Ver despachos</td>
+                        <td><a href="../listar_ventas" class="btn btn-sm" style="background-color: black; color: white;">Ver ventas</td>
+                </tr>
+
+        </tbody>
+        </table>
+    </div>
+    <br><br>
+</div>
+
+
+
+
+
+
+
+
+{% endblock content %}

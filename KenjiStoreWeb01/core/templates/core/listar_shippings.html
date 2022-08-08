@@ -1,0 +1,68 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        {% if messages %}
+            <div class="alert alert-success">
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+        <a class="custom_url" href="/mantenedores">← volver</a>
+    <h1>Lista de despachos</h1>
+    </div>
+
+    <div class="table-responsive">
+
+        <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Cliente</th>
+                <th scope="col">Pais</th>
+                <th scope="col">Ciudad</th>
+                <th scope="col">Region</th>
+                <th scope="col">Comuna</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Fecha Creacion</th>
+                <th scope="col">Detalle</th>
+                <th scope="col">Modificar</th>
+                <th scope="col">Eliminar</th>
+            </tr>
+        </thead>
+            <tbody>
+            {% for shipadd in shipping %}
+                <tr>
+                    <td>{{shipadd.customer}}</td>            
+                    <td>{{shipadd.country}}</td>
+                    <td>{{shipadd.city}}</td>
+                    <td>{{shipadd.state}}</td>            
+                    <td>{{shipadd.comuna}}</td>
+                    <td>{{shipadd.phone_number}}</td>
+                    <td>
+                        {% if shipadd.estado_despacho == 1 %}
+                            <span class="badge badge-success">En proceso</span>
+                        {% elif shipadd.estado_despacho == 2 %}
+                            <span class="badge badge-danger" style="background-color: rgb(176, 125, 37);">En camino</span>
+                        {% elif shipadd.estado_despacho == 3 %}
+                            <span class="badge badge-success" style="background-color: rgb(23, 128, 23);">Entregado</span>
+                        {% endif %}
+                    </td>
+                    <td>{{shipadd.date_added}}</td>
+                    <td><a href="/detalle_shipping/{{shipadd.id}}" class="btn btn-sm" style="background-color: black; color: white;">Ver detalle</a></td>
+                    <td><a href="/modificar_shipping/{{shipadd.id}}" class="btn btn-sm" style="background-color: black; color: white;">Modificar</a></td>
+                    <td><a href="/eliminar_shipping/{{shipadd.id}}" class="btn btn-danger btn-sm">Eliminar</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>    
+    <br><br>
+</div>
+
+{% endblock content %}

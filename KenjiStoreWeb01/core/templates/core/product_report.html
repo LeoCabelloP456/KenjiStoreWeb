@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+    <h1>Lista productos</h1>
+    </div>
+    <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Editorial</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Opciones</th>
+        </tr>
+    </thead>
+        <tbody>
+        {% for item in items %}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.nombre}}</td>            
+                <td>{{item.editorial}}</td>
+                <td>{{item.precio}}</td>
+                <td>{{item.stock}}</td>
+            </tr>
+        {% endfor %}
+
+    </tbody>
+
+    </table>
+</div>

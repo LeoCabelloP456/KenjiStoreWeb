@@ -1,0 +1,63 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+    <h1>Mis compras</h1>
+    </div>
+    <br><br>
+    <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Email</th>
+            <th scope="col">Tipo de Pago</th>
+            <th scope="col">Total</th>
+            <th scope="col">Cant. artículos</th>
+            <th scope="col">Estado envío</th>
+            <th scope="col">Fecha de compra</th>
+            <th scope="col">Acción</th>
+
+        </tr>
+    </thead>
+        <tbody>
+            {% for boleta in boletas %}
+            <tr>
+                <td>{{boleta.id}}</td>
+                <td>{{boleta.email}}</td>
+                <td>
+                    {% if boleta.tipo_pago == 1 %}
+                    Transferencia
+                    {% elif boleta.tipo_pago == 2 %}
+                    Paypal
+                    {% else %}
+                    No definido
+                    {% endif %}
+                </td>
+                <td>${{boleta.total}}</td>
+                <td>
+                    {{boleta.cantidad}}
+                </td>
+                <td>
+                    {% if boleta.shippingaddress.estado_despacho == 1 %}
+                        <span class="badge badge-success">En proceso</span>
+                    {% elif boleta.shippingaddress.estado_despacho == 2 %}
+                        <span class="badge badge-danger" style="background-color: rgb(176, 125, 37);">En camino</span>
+                    {% elif boleta.shippingaddress.estado_despacho == 3 %}
+                        <span class="badge badge-success" style="background-color: rgb(23, 128, 23);">Entregado</span>
+                    {% else %}
+                        <span class="badge badge-danger" style="background-color: rgb(255, 0, 0);">No definido</span>
+                    {% endif %}
+                </td>
+                <td>{{boleta.created_at}}</td>
+                <td><a href="/detalle_compra/{{boleta.id}}" class="btn btn-sm" style="background-color: black; color: white;">Ver detalle</td>
+            </tr>
+            {% endfor %}
+    </tbody>
+    </table>
+    <br><br>
+</div>
+
+{% endblock content %}

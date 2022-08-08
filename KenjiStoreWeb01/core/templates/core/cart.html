@@ -13,7 +13,6 @@
                     <div class="col-md-8 col-md-offset-2">
                         <div class="block">
                             <div class="product-list">
-                                <form method="post">
                                     <table class="table">
                                         <thead>
                                             <tr>
@@ -28,34 +27,39 @@
                                             <tr class="">                                           
                                                 <td class="">                                                
                                                     <div class="product-info">                                                   
-                                                        <img width="80" src="{{item.item.imagen.url}}">
-                                                        <a href="#!">{{item.item}}</a>
+                                                        <img width="80" src="{%static 'images/shop/products/'%}{{item.item.imagen}}">
+                                                        <a href="../index">{{item.item}}</a>
                                                     </div>
                                                 </td>
                                                 <td class="">${{item.item.precio}}</td>
                                                 <div class="quantity">
                                                     <td class="">{{item.quantity}}
-                                                    
-<<<<<<< HEAD
-                                                            <img data-item="{{item.item.id}}" data-action="add" class="chg-quantity update-cart"
-                                                            src="{% static 'images/arrow-up.png' %}" style="height: 10px;">
-
-                                                            <img data-item="{{item.item.id}}" data-action="remove" class="chg-quantity update-cart"
-=======
-                                                            <img data-product="{{item.item.id}}" data-action="add" class="chg-quantity update-cart"
-                                                            src="{% static 'images/arrow-up.png' %}" style="height: 10px;">
-
-                                                            <img data-product="{{item.item.id}}" data-action="remove" class="chg-quantity update-cart"
->>>>>>> 1ef5f0487fc1016b4efc1c779a6f2ea155fdc000
-                                                            src="{% static 'images/arrow-down.png' %}" style="height: 10px;">
+                                                        {% if item.quantity < item.item.stock %}
+                                                            <img data-item="{{item.item.id}}" data-item_stock="{{item.item.stock}}" data-action="add" class="chg-quantity update-cart"
+                                                            src="{% static 'images/arrow-up.png' %}" width="13">
+                                                        {% endif %}
+                                                            <img data-item="{{item.item.id}}" data-item_stock="{{item.item.stock}}" data-action="remove" class="chg-quantity update-cart"
+                                                            src="{% static 'images/arrow-down.png' %}" width="13">
                                                     
                                                     </td>
                                                 </div>
-                                                <td class="">
-                                                    <a class="product-remove" href="#!">Eliminar</a>                                               
+                                                <td>
+                                                    {% if user.is_authenticated %}
+                                                    <form action="/cart/delete_item" method="post">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="item" value="{{item.item.id}}">
+                                                        <button type="submit" class="product-remove">Eliminar</button>                                               
+                                                    </form>
+                                                    {% else %}
+                                                    <button type="button" data-item="{{item.item.id}}" data-action="delete" class="product-remove update-cart">Eliminar</button>
+                                                    {% endif %}
                                                 </td>                                                 
                                             </tr>
                                             <br>
+                                        {% empty %}
+                                            <tr>
+                                                <td colspan="4" class="text-center"><h3>No hay productos en el carrito para mostrar.</h3></td>
+                                            </tr>
                                         {% endfor %}
                                         </tbody>
                                     </table>
@@ -68,12 +72,13 @@
                                             <th>
                                                 <h5>Total: <strong>${{order.get_cart_total}}</strong></h5>
                                             </th>
+                                            {% if order.get_cart_items > 0 %}
                                             <th>
                                                 <a href="../checkout" class="btn btn-main pull-right">Confirmar</a>
                                             </th>
+                                            {% endif %}
                                         </tr>
                                     </table>
-                                </form>
                             </div>
                         </div>
                     </div>

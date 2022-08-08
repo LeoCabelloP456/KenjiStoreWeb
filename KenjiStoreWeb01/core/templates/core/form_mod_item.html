@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="container">
+    <div class="row">
+        <a class="custom_url" href="/listar_items">← volver</a>
+        <h1>Modificar un producto</h1>
+    </div>
+
+
+    <div class="row">
+
+        
+        <form method="post" action="#" id="formulario">
+            {% csrf_token %}
+            <div class="form-group">
+            {{form.as_table}}
+            </div>
+            <input type="submit" class="btn btn-danger" id="enviar" value="Modificar">
+            <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
+            <div id="error" class="alert alert-danger" role="alert"></div>
+        </form>
+        <div class="alert alert-success" role="alert">
+            {{mensaje}}
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
